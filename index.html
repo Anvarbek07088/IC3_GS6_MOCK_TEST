@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IC3 GS6 MOCK EXAM TEST | 1000 BALLIK TIZIM</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div class="container" id="loginContainer">
+        <div class="login-box">
+            <h1>IC3 GS6 MOCK EXAM TEST</h1>
+            <h2>1000 ballik tizim | 45 daqiqa</h2>
+            
+            <div class="device-info">
+                <p>Qurilma ID: <span id="deviceIdDisplay"></span></p>
+            </div>
+            
+            <form id="loginForm">
+                <div class="form-group">
+                    <label for="username">Login:</label>
+                    <input type="text" id="username" required autocomplete="off">
+                </div>
+                
+                <div class="form-group">
+                    <label for="password">Parol:</label>
+                    <input type="password" id="password" required>
+                </div>
+                
+                <button type="submit" class="btn-login">Kirish</button>
+            </form>
+            
+            <div id="loginMessage" class="message"></div>
+            
+            <div class="device-note">
+                <small>Faqat ruxsat etilgan qurilmalardan kirish mumkin</small>
+            </div>
+        </div>
+    </div>
+
+    <div class="container" id="examContainer" style="display: none;">
+        <div class="exam-header">
+            <h1>IC3 GS6 MOCK EXAM TEST</h1>
+            <div class="user-info">
+                <span id="userName"></span> | 
+                <span id="userDevice"></span>
+                <button id="logoutBtn" class="btn-logout">Chiqish</button>
+            </div>
+        </div>
+        
+        <div class="exam-timer">
+            <div class="timer-box">
+                <svg class="timer-progress" width="80" height="80">
+                    <circle class="timer-bg" cx="40" cy="40" r="36" stroke="#e9ecef" stroke-width="4" fill="none"/>
+                    <circle class="timer-fill" cx="40" cy="40" r="36" stroke="#48bb78" stroke-width="4" fill="none" 
+                            stroke-dasharray="226.2" stroke-dashoffset="0" transform="rotate(-90 40 40)"/>
+                </svg>
+                <div class="timer-text">
+                    <span id="timerMinutes">45</span>:<span id="timerSeconds">00</span>
+                </div>
+            </div>
+            <div class="exam-progress">
+                <div class="progress-bar">
+                    <div id="progressFill" class="progress-fill"></div>
+                </div>
+                <div class="progress-info">
+                    <span>Savol <span id="currentQuestionNum">1</span>/<span id="totalQuestions">45</span></span>
+                    <span id="answeredCount">0</span>/45 javob berilgan
+                </div>
+            </div>
+        </div>
+        
+        <div class="score-display">
+            <div class="score-box">
+                <span class="score-label">Jami ball:</span>
+                <span class="score-value" id="totalScore">0</span>
+                <span class="score-max">/1000</span>
+            </div>
+            <div class="passing-score">
+                <span class="passing-label">O'tish balli:</span>
+                <span class="passing-value">700</span>
+            </div>
+        </div>
+        
+        <div class="exam-content">
+            <div id="questionContainer" class="question-container">
+                <div class="question-status" id="questionStatus"></div>
+                <div class="question-points" id="questionPoints"></div>
+            </div>
+            
+            <div class="navigation-buttons">
+                <button id="prevBtn" class="btn-nav" disabled>Oldingi</button>
+                <button id="submitAnswerBtn" class="btn-submit-answer">Javobni yuborish</button>
+                <button id="nextBtn" class="btn-nav" disabled>Keyingi</button>
+            </div>
+        </div>
+        
+        <div class="question-grid">
+            <h3>Savollar ro'yxati</h3>
+            <div id="questionGrid" class="grid-container"></div>
+        </div>
+    </div>
+
+    <div id="resultModal" class="modal">
+        <div class="modal-content result-modal">
+            <h2>Test natijalari</h2>
+            
+            <div class="result-summary-box">
+                <div class="final-score">
+                    <span class="final-score-label">Umumiy ball:</span>
+                    <span class="final-score-value" id="finalScore">0</span>
+                    <span class="final-score-max">/1000</span>
+                </div>
+                <div class="result-status" id="resultStatus"></div>
+                <div class="time-spent">
+                    <span>Sarflangan vaqt: <span id="timeSpent">00:00</span></span>
+                </div>
+            </div>
+            
+            <div class="charts-container">
+                <div class="chart-box">
+                    <canvas id="resultPieChart"></canvas>
+                </div>
+                <div class="chart-box">
+                    <canvas id="resultBarChart"></canvas>
+                </div>
+                <div class="chart-box">
+                    <canvas id="resultRadarChart"></canvas>
+                </div>
+            </div>
+            
+            <div class="score-breakdown">
+                <h3>Ballar tahlili</h3>
+                <div class="breakdown-grid" id="scoreBreakdown"></div>
+            </div>
+            
+            <div id="resultDetails" class="result-details"></div>
+            
+            <div class="result-actions">
+                <button class="btn-close" onclick="closeModal()">Yopish</button>
+                <button class="btn-print" onclick="printResults()">Natijalarni chop etish</button>
+            </div>
+        </div>
+    </div>
+
+    
+
+    <div id="timeWarningModal" class="modal-small">
+        <div class="modal-content-small">
+            <h3>⏰ Vaqt tugayapti!</h3>
+            <p>Test tugashiga 5 daqiqa qoldi.</p>
+            <button class="btn-ok" onclick="closeTimeWarning()">OK</button>
+        </div>
+    </div>
+
+    <div id="timeUpModal" class="modal-small">
+        <div class="modal-content-small">
+            <h3>⌛ Vaqt tugadi!</h3>
+            <p>Test avtomatik ravishda yakunlanadi.</p>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
