@@ -1,7 +1,7 @@
 // Ruxsat etilgan device IDlar
 const ALLOWED_DEVICES = [
     'device123', 'device456', 'device789',
-    'ABC123', 'XYZ789', 'TEST001', 'DEV10B03E0'
+    'ABC123', 'XYZ789', 'DEV4D2F7958', 'DEV10B03E0'
 ];
 
 // Foydalanuvchi ma'lumotlari
