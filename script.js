@@ -1,16 +1,13 @@
 // Ruxsat etilgan device IDlar
 const ALLOWED_DEVICES = [
-    'device123', 'device456', 'device789',
-    'ABC123', 'XYZ789', 'DEV4D2F7958', 'DEV10B03E0'
+    'DEV1707A73B', 'DEVF592A40', 'DEVC2AE35A',
+    'DEV97DAB61', 'DEV1AF3CEBB', 'DEV4D2F7958', 'DEV10B03E0','DEV94A5262'
 ];
 
 // Foydalanuvchi ma'lumotlari
 const USERS = {
     'student1': { password: '123456', name: 'Ali Valiyev' },
-    'student2': { password: '123456', name: 'Jamshid Karimov' },
-    'student3': { password: '123456', name: 'Dilnoza Ahmedova' },
-    'student4': { password: '123456', name: 'Madina Tursunova' },
-    'student5': { password: '123456', name: 'Bobur Abdullayev' }
+    'student2': { password: '123456', name: 'Anvarbek' },
 };
 
 // Global o'zgaruvchilar
@@ -77,142 +74,732 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 // Savollarni yuklash
+// Savollarni yuklash - FAQAT TYPE 1, 2, 3
 function loadQuestions() {
     questions = [
-        // 1. QR code (type 1 - 10 ball)
-        { tr: 101, id: 200101, type: 1, question: "What is the main purpose of a QR code?", options: ["A. To play music", "B. To quickly share links or information by scanning", "C. To charge phones", "D. To print documents"], correct: 1, maxScore: 10, correctCount: 1 },
+        // ===== TYPE 1: BITTA VARIANTLI SAVOLLAR (10 ball) =====
+        { 
+            tr: 101, 
+            id: 200101, 
+            type: 1, 
+            question: "What is the main purpose of a QR code?", 
+            options: [
+                "A. To play music", 
+                "B. To quickly share links or information by scanning", 
+                "C. To charge phones", 
+                "D. To print documents"
+            ], 
+            correct: 1, 
+            maxScore: 10, 
+            correctCount: 1 
+        },
         
-        // 2. Link tekshirish (type 2 - 2 variant)
-        { tr: 102, id: 200102, type: 2, question: "Which two things should you do before clicking any link in a message? (Choose two)", options: ["A. Hover over the link to see the real URL", "B. Click it to check if it's safe", "C. Check the sender's name and email address", "D. Forward it to friends first"], correct: [0, 2], maxScore: 20, correctCount: 2 },
+        { 
+            tr: 102, 
+            id: 200102, 
+            type: 1, 
+            question: "Which option is the safest place to store very important school files?", 
+            options: [
+                "A. Only on Desktop", 
+                "B. In cloud storage with 2FA enabled", 
+                "C. On a public shared drive", 
+                "D. In email drafts"
+            ], 
+            correct: 1, 
+            maxScore: 10, 
+            correctCount: 1 
+        },
         
-        // 3. Security habits (type 3 - 3 statement)
-        { tr: 103, id: 200103, type: 3, question: "For each statement, select Yes if it's a good security habit, No if it's risky.", statements: ["Using the same password on school and gaming accounts", "Turning on automatic updates for apps", "Logging out of accounts on shared computers"], correct: [0, 1, 1], maxScore: 30, correctCount: 3 },
+        { 
+            tr: 103, 
+            id: 200103, 
+            type: 1, 
+            question: "What does 'alt text' in images help with?", 
+            options: [
+                "A. Makes images load faster", 
+                "B. Describes the image for screen readers and search engines", 
+                "C. Changes image colors", 
+                "D. Adds music to images"
+            ], 
+            correct: 1, 
+            maxScore: 10, 
+            correctCount: 1 
+        },
         
-        // 4. Shortcut keys (type 5 - 4 matching)
-        { tr: 104, id: 200104, type: 5, question: "Match each shortcut key (Windows) to its action.", items: ["Ctrl + C", "Ctrl + V", "Ctrl + Z", "Ctrl + Shift + Esc"], targets: ["Copy", "Paste", "Undo", "Open Task Manager"], correct: { "Ctrl + C": "Copy", "Ctrl + V": "Paste", "Ctrl + Z": "Undo", "Ctrl + Shift + Esc": "Open Task Manager" }, maxScore: 40, correctCount: 4 },
+        { 
+            tr: 104, 
+            id: 200104, 
+            type: 1, 
+            question: "What is the best way to verify if a website is legitimate before entering personal info?", 
+            options: [
+                "A. Check if it has many likes on social media", 
+                "B. Look for HTTPS and padlock icon", 
+                "C. Ask friends if they use it", 
+                "D. Use it only at night"
+            ], 
+            correct: 1, 
+            maxScore: 10, 
+            correctCount: 1 
+        },
         
-        // 5. Safe storage (type 1 - 10 ball)
-        { tr: 105, id: 200105, type: 1, question: "Which option is the safest place to store very important school files?", options: ["A. Only on Desktop", "B. In cloud storage with 2FA enabled", "C. On a public shared drive", "D. In email drafts"], correct: 1, maxScore: 10, correctCount: 1 },
+        { 
+            tr: 105, 
+            id: 200105, 
+            type: 1, 
+            question: "Which button in most browsers lets you go back to the previous page?", 
+            options: [
+                "A. Refresh", 
+                "B. Home", 
+                "C. Back arrow", 
+                "D. New Tab"
+            ], 
+            correct: 2, 
+            maxScore: 10, 
+            correctCount: 1 
+        },
         
-        // 6. Wrist strain (type 2 - 2 variant)
-        { tr: 106, id: 200106, type: 2, question: "Which two actions help reduce wrist strain when typing for long periods? (Choose two)", options: ["A. Use wrist rest", "B. Keep wrists straight and neutral", "C. Type very fast without breaks", "D. Rest palms on the desk edge"], correct: [0, 1], maxScore: 20, correctCount: 2 },
+        { 
+            tr: 106, 
+            id: 200106, 
+            type: 1, 
+            question: "What happens when you 'clear browsing data' in a browser?", 
+            options: [
+                "A. Deletes all files on computer", 
+                "B. Removes history, cookies, cache", 
+                "C. Changes your IP address", 
+                "D. Installs new updates"
+            ], 
+            correct: 1, 
+            maxScore: 10, 
+            correctCount: 1 
+        },
         
-        // 7. Netiquette (type 3 - 3 statement)
-        { tr: 107, id: 200107, type: 3, question: "Select True if the statement is correct about netiquette, False if not.", statements: ["Writing in ALL CAPS is considered polite online", "Using clear subject lines in emails is helpful", "Replying to group emails with 'me too' is always appropriate"], correct: [0, 1, 0], maxScore: 30, correctCount: 3 },
+        { 
+            tr: 107, 
+            id: 200107, 
+            type: 1, 
+            question: "What is 'digital divide'?", 
+            options: [
+                "A. Difference between old and new phones", 
+                "B. Gap between people who have and don't have internet access", 
+                "C. Split between Windows and Mac users", 
+                "D. Difference in typing speed"
+            ], 
+            correct: 1, 
+            maxScore: 10, 
+            correctCount: 1 
+        },
         
-        // 8. Alt text (type 1 - 10 ball)
-        { tr: 108, id: 200108, type: 1, question: "What does 'alt text' in images help with?", options: ["A. Makes images load faster", "B. Describes the image for screen readers and search engines", "C. Changes image colors", "D. Adds music to images"], correct: 1, maxScore: 10, correctCount: 1 },
+        { 
+            tr: 108, 
+            id: 200108, 
+            type: 1, 
+            question: "What is the purpose of 'version control' in documents?", 
+            options: [
+                "A. To delete old versions", 
+                "B. To keep track of changes and previous versions", 
+                "C. To make file bigger", 
+                "D. To share with everyone"
+            ], 
+            correct: 1, 
+            maxScore: 10, 
+            correctCount: 1 
+        },
         
-        // 9. Safe file types (type 2 - 3 variant)
-        { tr: 109, id: 200109, type: 2, question: "Which three file types are usually considered safe to open from email if from trusted sender? (Choose three)", options: ["A. .pdf", "B. .jpg", "C. .zip (without checking contents)", "D. .png", "E. .docx (from known teacher)"], correct: [0, 1, 3], maxScore: 30, correctCount: 3 },
+        { 
+            tr: 109, 
+            id: 200109, 
+            type: 1, 
+            question: "What is the best way to share a very large file with a teacher?", 
+            options: [
+                "A. Email attachment", 
+                "B. Upload to Google Drive and share link", 
+                "C. Print and give in person", 
+                "D. Post on Instagram story"
+            ], 
+            correct: 1, 
+            maxScore: 10, 
+            correctCount: 1 
+        },
         
-        // 10. Pharming etc (type 5 - 4 matching)
-        { tr: 110, id: 200110, type: 5, question: "Match each term to its meaning.", items: ["Pharming", "Phishing", "Smishing", "Vishing"], targets: ["Redirecting to fake website via DNS", "Fake emails to steal info", "Fake text messages", "Fake phone calls"], correct: { "Pharming": "Redirecting to fake website via DNS", "Phishing": "Fake emails to steal info", "Smishing": "Fake text messages", "Vishing": "Fake phone calls" }, maxScore: 40, correctCount: 4 },
+        { 
+            tr: 110, 
+            id: 200110, 
+            type: 1, 
+            question: "What is the purpose of 'dark mode' on devices?", 
+            options: [
+                "A. Makes screen brighter", 
+                "B. Reduces eye strain in low light and saves battery", 
+                "C. Changes language", 
+                "D. Deletes files faster"
+            ], 
+            correct: 1, 
+            maxScore: 10, 
+            correctCount: 1 
+        },
         
-        // 11. Website security (type 1 - 10 ball)
-        { tr: 111, id: 200111, type: 1, question: "What is the best way to verify if a website is legitimate before entering personal info?", options: ["A. Check if it has many likes on social media", "B. Look for HTTPS and padlock icon", "C. Ask friends if they use it", "D. Use it only at night"], correct: 1, maxScore: 10, correctCount: 1 },
+        { 
+            tr: 111, 
+            id: 200111, 
+            type: 1, 
+            question: "What does 'synchronous' communication mean?", 
+            options: [
+                "A. Email and messaging", 
+                "B. Real-time like video call or phone", 
+                "C. Posting on forum", 
+                "D. Sending letters by mail"
+            ], 
+            correct: 1, 
+            maxScore: 10, 
+            correctCount: 1 
+        },
         
-        // 12. Inclusive language (type 3 - 4 statement)
-        { tr: 112, id: 200112, type: 3, question: "Select Yes if this is an example of inclusive language, No if not.", statements: ["Hey guys, let's start!", "Hello everyone, welcome!", "All ladies to the left side", "Friends, please gather here"], correct: [0, 1, 0, 1], maxScore: 40, correctCount: 4 },
+        { 
+            tr: 112, 
+            id: 200112, 
+            type: 1, 
+            question: "What does 'bookmark' do in a browser?", 
+            options: [
+                "A. Deletes the page", 
+                "B. Saves the webpage address for quick access", 
+                "C. Prints the page", 
+                "D. Shares the page on social media"
+            ], 
+            correct: 1, 
+            maxScore: 10, 
+            correctCount: 1 
+        },
         
-        // 13. File naming (type 2 - 2 variant)
-        { tr: 113, id: 200113, type: 2, question: "Which two practices are recommended for naming school project files? (Choose two)", options: ["A. Include your name and date", "B. Use random numbers only", "C. Use descriptive words like 'Math_Project_Anvar_2025-10'", "D. Keep default name like 'document1.docx'"], correct: [0, 2], maxScore: 20, correctCount: 2 },
+        // ===== TYPE 2: IKKI VARIANTLI SAVOLLAR (20 ball) =====
+        { 
+            tr: 113, 
+            id: 200113, 
+            type: 2, 
+            question: "Which two things should you do before clicking any link in a message? (Choose two)", 
+            options: [
+                "A. Hover over the link to see the real URL", 
+                "B. Click it to check if it's safe", 
+                "C. Check the sender's name and email address", 
+                "D. Forward it to friends first"
+            ], 
+            correct: [0, 2], 
+            maxScore: 20, 
+            correctCount: 2 
+        },
         
-        // 14. Back button (type 1 - 10 ball)
-        { tr: 114, id: 200114, type: 1, question: "Which button in most browsers lets you go back to the previous page?", options: ["A. Refresh", "B. Home", "C. Back arrow", "D. New Tab"], correct: 2, maxScore: 10, correctCount: 1 },
+        { 
+            tr: 114, 
+            id: 200114, 
+            type: 2, 
+            question: "Which two actions help reduce wrist strain when typing for long periods? (Choose two)", 
+            options: [
+                "A. Use wrist rest", 
+                "B. Keep wrists straight and neutral", 
+                "C. Type very fast without breaks", 
+                "D. Rest palms on the desk edge"
+            ], 
+            correct: [0, 1], 
+            maxScore: 20, 
+            correctCount: 2 
+        },
         
-        // 15. Image usage (type 2 - 3 variant)
-        { tr: 115, id: 200115, type: 2, question: "Which three things should you do when using someone else's image in a school presentation? (Choose three)", options: ["A. Check if it's Creative Commons", "B. Give credit to the creator", "C. Use it without asking anyone", "D. Include source link or name", "E. Change colors to make it yours"], correct: [0, 1, 3], maxScore: 30, correctCount: 3 },
+        { 
+            tr: 115, 
+            id: 200115, 
+            type: 2, 
+            question: "Which two practices are recommended for naming school project files? (Choose two)", 
+            options: [
+                "A. Include your name and date", 
+                "B. Use random numbers only", 
+                "C. Use descriptive words like 'Math_Project_Anvar_2025-10'", 
+                "D. Keep default name like 'document1.docx'"
+            ], 
+            correct: [0, 2], 
+            maxScore: 20, 
+            correctCount: 2 
+        },
         
-        // 16. Alias online (type 3 - 3 statement)
-        { tr: 116, id: 200116, type: 3, question: "For each statement, select True if it's a good reason to use an alias online, False if not.", statements: ["To separate personal and school accounts", "To hide your identity while cyberbullying", "To protect privacy in public forums"], correct: [1, 0, 1], maxScore: 30, correctCount: 3 },
+        { 
+            tr: 116, 
+            id: 200116, 
+            type: 2, 
+            question: "Which two actions protect your smartphone from unauthorized access? (Choose two)", 
+            options: [
+                "A. Use screen lock (PIN, fingerprint, face)", 
+                "B. Leave Bluetooth always on", 
+                "C. Install apps only from official store", 
+                "D. Share phone with strangers"
+            ], 
+            correct: [0, 2], 
+            maxScore: 20, 
+            correctCount: 2 
+        },
         
-        // 17. Ports (type 5 - 4 matching)
-        { tr: 117, id: 200117, type: 5, question: "Match each port to its common use.", items: ["HDMI", "USB-C", "Ethernet", "3.5mm jack"], targets: ["Video and audio to monitor/TV", "Charging and data transfer", "Wired internet connection", "Headphones and microphone"], correct: { "HDMI": "Video and audio to monitor/TV", "USB-C": "Charging and data transfer", "Ethernet": "Wired internet connection", "3.5mm jack": "Headphones and microphone" }, maxScore: 40, correctCount: 4 },
+        { 
+            tr: 117, 
+            id: 200117, 
+            type: 2, 
+            question: "Which two things should you avoid when posting on school social media group? (Choose two)", 
+            options: [
+                "A. Sharing homework questions", 
+                "B. Posting rude jokes about teachers", 
+                "C. Tagging classmates in group photos", 
+                "D. Using bad language"
+            ], 
+            correct: [1, 3], 
+            maxScore: 20, 
+            correctCount: 2 
+        },
         
-        // 18. Clear browsing data (type 1 - 10 ball)
-        { tr: 118, id: 200118, type: 1, question: "What happens when you 'clear browsing data' in a browser?", options: ["A. Deletes all files on computer", "B. Removes history, cookies, cache", "C. Changes your IP address", "D. Installs new updates"], correct: 1, maxScore: 10, correctCount: 1 },
+        { 
+            tr: 118, 
+            id: 200118, 
+            type: 2, 
+            question: "Which two places are safe to download software from? (Choose two)", 
+            options: [
+                "A. Official app store", 
+                "B. Random pop-up ads", 
+                "C. Developer's official website", 
+                "D. Unknown torrent sites"
+            ], 
+            correct: [0, 2], 
+            maxScore: 20, 
+            correctCount: 2 
+        },
         
-        // 19. Smartphone security (type 2 - 2 variant)
-        { tr: 119, id: 200119, type: 2, question: "Which two actions protect your smartphone from unauthorized access? (Choose two)", options: ["A. Use screen lock (PIN, fingerprint, face)", "B. Leave Bluetooth always on", "C. Install apps only from official store", "D. Share phone with strangers"], correct: [0, 2], maxScore: 20, correctCount: 2 },
+        { 
+            tr: 119, 
+            id: 200119, 
+            type: 2, 
+            question: "Which two actions are examples of digital collaboration? (Choose two)", 
+            options: [
+                "A. Editing shared Google Doc together", 
+                "B. Working alone at home", 
+                "C. Using video call to discuss project", 
+                "D. Sending files by USB drive only"
+            ], 
+            correct: [0, 2], 
+            maxScore: 20, 
+            correctCount: 2 
+        },
         
-        // 20. Video call etiquette (type 3 - 4 statement)
-        { tr: 120, id: 200120, type: 3, question: "Select Yes if this is proper video call etiquette, No if not.", statements: ["Mute microphone when not speaking", "Eat loud food during class call", "Look at camera when talking", "Use funny virtual background in serious meeting"], correct: [1, 0, 1, 0], maxScore: 40, correctCount: 4 },
+        { 
+            tr: 120, 
+            id: 200120, 
+            type: 2, 
+            question: "Which two things should you check before accepting friend request from stranger? (Choose two)", 
+            options: [
+                "A. Mutual friends", 
+                "B. Profile picture and posts", 
+                "C. Accept immediately", 
+                "D. Check if account is new or fake"
+            ], 
+            correct: [1, 3], 
+            maxScore: 20, 
+            correctCount: 2 
+        },
         
-        // 21. News verification (type 1 - 10 ball)
-        { tr: 121, id: 200121, type: 1, question: "Which is the most reliable way to check if news is true?", options: ["A. It has many shares", "B. Check multiple trusted sources", "C. It's on the first page of Google", "D. Someone famous posted it"], correct: 1, maxScore: 10, correctCount: 1 },
+        { 
+            tr: 121, 
+            id: 200121, 
+            type: 2, 
+            question: "Which two ways help protect your privacy on social media? (Choose two)", 
+            options: [
+                "A. Set profile to private", 
+                "B. Accept all friend requests", 
+                "C. Review tags before they appear", 
+                "D. Share exact location every day"
+            ], 
+            correct: [0, 2], 
+            maxScore: 20, 
+            correctCount: 2 
+        },
         
-        // 22. School social media (type 2 - 2 variant)
-        { tr: 122, id: 200122, type: 2, question: "Which two things should you avoid when posting on school social media group? (Choose two)", options: ["A. Sharing homework questions", "B. Posting rude jokes about teachers", "C. Tagging classmates in group photos", "D. Using bad language"], correct: [1, 3], maxScore: 20, correctCount: 2 },
+        { 
+            tr: 122, 
+            id: 200122, 
+            type: 2, 
+            question: "Which two actions are good for maintaining a positive digital footprint? (Choose two)", 
+            options: [
+                "A. Think before posting", 
+                "B. Post angry comments about teachers", 
+                "C. Share helpful study tips", 
+                "D. Use fake names everywhere"
+            ], 
+            correct: [0, 2], 
+            maxScore: 20, 
+            correctCount: 2 
+        },
         
-        // 23. Device categories (type 5 - 4 matching)
-        { tr: 123, id: 200123, type: 5, question: "Match each device to its category.", items: ["Monitor", "Keyboard", "SSD", "Router"], targets: ["Output device", "Input device", "Storage device", "Networking device"], correct: { "Monitor": "Output device", "Keyboard": "Input device", "SSD": "Storage device", "Router": "Networking device" }, maxScore: 40, correctCount: 4 },
+        // ===== TYPE 2: UCH VARIANTLI SAVOLLAR (30 ball) =====
+        { 
+            tr: 123, 
+            id: 200123, 
+            type: 2, 
+            question: "Which three file types are usually considered safe to open from email if from trusted sender? (Choose three)", 
+            options: [
+                "A. .pdf", 
+                "B. .jpg", 
+                "C. .zip (without checking contents)", 
+                "D. .png", 
+                "E. .docx (from known teacher)"
+            ], 
+            correct: [0, 1, 3], 
+            maxScore: 30, 
+            correctCount: 3 
+        },
         
-        // 24. Digital divide (type 1 - 10 ball)
-        { tr: 124, id: 200124, type: 1, question: "What is 'digital divide'?", options: ["A. Difference between old and new phones", "B. Gap between people who have and don't have internet access", "C. Split between Windows and Mac users", "D. Difference in typing speed"], correct: 1, maxScore: 10, correctCount: 1 },
+        { 
+            tr: 124, 
+            id: 200124, 
+            type: 2, 
+            question: "Which three things should you do when using someone else's image in a school presentation? (Choose three)", 
+            options: [
+                "A. Check if it's Creative Commons", 
+                "B. Give credit to the creator", 
+                "C. Use it without asking anyone", 
+                "D. Include source link or name", 
+                "E. Change colors to make it yours"
+            ], 
+            correct: [0, 1, 3], 
+            maxScore: 30, 
+            correctCount: 3 
+        },
         
-        // 25. Energy saving (type 3 - 4 statement)
-        { tr: 125, id: 200125, type: 3, question: "Select True if this helps save energy on laptop, False if not.", statements: ["Lower screen brightness", "Run many programs at once", "Use power-saving mode", "Keep charger always plugged in"], correct: [1, 0, 1, 0], maxScore: 40, correctCount: 4 },
+        { 
+            tr: 125, 
+            id: 200125, 
+            type: 2, 
+            question: "Which three steps help create a strong presentation? (Choose three)", 
+            options: [
+                "A. Use large clear fonts", 
+                "B. Put all text in one slide", 
+                "C. Use relevant images", 
+                "D. Keep slides simple (few words)", 
+                "E. Use 10 different fonts"
+            ], 
+            correct: [0, 2, 3], 
+            maxScore: 30, 
+            correctCount: 3 
+        },
         
-        // 26. Presentation tips (type 2 - 3 variant)
-        { tr: 126, id: 200126, type: 2, question: "Which three steps help create a strong presentation? (Choose three)", options: ["A. Use large clear fonts", "B. Put all text in one slide", "C. Use relevant images", "D. Keep slides simple (few words)", "E. Use 10 different fonts"], correct: [0, 2, 3], maxScore: 30, correctCount: 3 },
+        { 
+            tr: 126, 
+            id: 200126, 
+            type: 2, 
+            question: "Which three things should be in a good file name for a project? (Choose three)", 
+            options: [
+                "A. Your name", 
+                "B. Topic or description", 
+                "C. Date (YYYY-MM-DD)", 
+                "D. Random numbers only", 
+                "E. Special characters like !@#"
+            ], 
+            correct: [0, 1, 2], 
+            maxScore: 30, 
+            correctCount: 3 
+        },
         
-        // 27. Version control (type 1 - 10 ball)
-        { tr: 127, id: 200127, type: 1, question: "What is the purpose of 'version control' in documents?", options: ["A. To delete old versions", "B. To keep track of changes and previous versions", "C. To make file bigger", "D. To share with everyone"], correct: 1, maxScore: 10, correctCount: 1 },
+        // ===== TYPE 3: TRUE/FALSE SAVOLLAR (har bir statement 10 ball) =====
+        { 
+            tr: 127, 
+            id: 200127, 
+            type: 3, 
+            question: "For each statement, select Yes if it's a good security habit, No if it's risky.", 
+            statements: [
+                "Using the same password on school and gaming accounts", 
+                "Turning on automatic updates for apps", 
+                "Logging out of accounts on shared computers"
+            ], 
+            correct: [0, 1, 1], 
+            maxScore: 30, 
+            correctCount: 3 
+        },
         
-        // 28. Accessibility (type 3 - 4 statement)
-        { tr: 128, id: 200128, type: 3, question: "Select Yes if this is an example of accessibility feature, No if not.", statements: ["Alt text on images", "Using only red and green colors", "Captions on videos", "Small font size (8 pt)"], correct: [1, 0, 1, 0], maxScore: 40, correctCount: 4 },
+        { 
+            tr: 128, 
+            id: 200128, 
+            type: 3, 
+            question: "Select True if the statement is correct about netiquette, False if not.", 
+            statements: [
+                "Writing in ALL CAPS is considered polite online", 
+                "Using clear subject lines in emails is helpful", 
+                "Replying to group emails with 'me too' is always appropriate"
+            ], 
+            correct: [0, 1, 0], 
+            maxScore: 30, 
+            correctCount: 3 
+        },
         
-        // 29. Safe download (type 2 - 2 variant)
-        { tr: 129, id: 200129, type: 2, question: "Which two places are safe to download software from? (Choose two)", options: ["A. Official app store", "B. Random pop-up ads", "C. Developer's official website", "D. Unknown torrent sites"], correct: [0, 2], maxScore: 20, correctCount: 2 },
+        { 
+            tr: 129, 
+            id: 200129, 
+            type: 3, 
+            question: "Select Yes if this is an example of inclusive language, No if not.", 
+            statements: [
+                "Hey guys, let's start!", 
+                "Hello everyone, welcome!", 
+                "All ladies to the left side", 
+                "Friends, please gather here"
+            ], 
+            correct: [0, 1, 0, 1], 
+            maxScore: 40, 
+            correctCount: 4 
+        },
         
-        // 30. Security terms (type 5 - 4 matching)
-        { tr: 130, id: 200130, type: 5, question: "Match each term to its example.", items: ["Phishing email", "Strong password", "Weak password", "Two-factor authentication"], targets: ["'Your account is suspended – click here'", "SunnyHill2025!Coffee", "123456", "Code sent to phone after password"], correct: { "Phishing email": "'Your account is suspended – click here'", "Strong password": "SunnyHill2025!Coffee", "Weak password": "123456", "Two-factor authentication": "Code sent to phone after password" }, maxScore: 40, correctCount: 4 },
+        { 
+            tr: 130, 
+            id: 200130, 
+            type: 3, 
+            question: "For each statement, select True if it's a good reason to use an alias online, False if not.", 
+            statements: [
+                "To separate personal and school accounts", 
+                "To hide your identity while cyberbullying", 
+                "To protect privacy in public forums"
+            ], 
+            correct: [1, 0, 1], 
+            maxScore: 30, 
+            correctCount: 3 
+        },
         
-        // 31. Bookmark (type 1 - 10 ball)
-        { tr: 131, id: 200131, type: 1, question: "What does 'bookmark' do in a browser?", options: ["A. Deletes the page", "B. Saves the webpage address for quick access", "C. Prints the page", "D. Shares the page on social media"], correct: 1, maxScore: 10, correctCount: 1 },
+        { 
+            tr: 131, 
+            id: 200131, 
+            type: 3, 
+            question: "Select Yes if this is proper video call etiquette, No if not.", 
+            statements: [
+                "Mute microphone when not speaking", 
+                "Eat loud food during class call", 
+                "Look at camera when talking", 
+                "Use funny virtual background in serious meeting"
+            ], 
+            correct: [1, 0, 1, 0], 
+            maxScore: 40, 
+            correctCount: 4 
+        },
         
-        // 32. Online reputation (type 3 - 3 statement)
-        { tr: 132, id: 200132, type: 3, question: "Select True if this is correct about online reputation.", statements: ["What you post can affect future job opportunities", "Deleting posts removes them from search engines forever", "Teachers and universities check social media"], correct: [1, 0, 1], maxScore: 30, correctCount: 3 },
+        { 
+            tr: 132, 
+            id: 200132, 
+            type: 3, 
+            question: "Select True if this helps save energy on laptop, False if not.", 
+            statements: [
+                "Lower screen brightness", 
+                "Run many programs at once", 
+                "Use power-saving mode", 
+                "Keep charger always plugged in"
+            ], 
+            correct: [1, 0, 1, 0], 
+            maxScore: 40, 
+            correctCount: 4 
+        },
         
-        // 33. Digital collaboration (type 2 - 2 variant)
-        { tr: 133, id: 200133, type: 2, question: "Which two actions are examples of digital collaboration? (Choose two)", options: ["A. Editing shared Google Doc together", "B. Working alone at home", "C. Using video call to discuss project", "D. Sending files by USB drive only"], correct: [0, 2], maxScore: 20, correctCount: 2 },
+        { 
+            tr: 133, 
+            id: 200133, 
+            type: 3, 
+            question: "Select Yes if this is an example of accessibility feature, No if not.", 
+            statements: [
+                "Alt text on images", 
+                "Using only red and green colors", 
+                "Captions on videos", 
+                "Small font size (8 pt)"
+            ], 
+            correct: [1, 0, 1, 0], 
+            maxScore: 40, 
+            correctCount: 4 
+        },
         
-        // 34. Large file sharing (type 1 - 10 ball)
-        { tr: 134, id: 200134, type: 1, question: "What is the best way to share a very large file with a teacher?", options: ["A. Email attachment", "B. Upload to Google Drive and share link", "C. Print and give in person", "D. Post on Instagram story"], correct: 1, maxScore: 10, correctCount: 1 },
+        { 
+            tr: 134, 
+            id: 200134, 
+            type: 3, 
+            question: "Select True if this is correct about online reputation.", 
+            statements: [
+                "What you post can affect future job opportunities", 
+                "Deleting posts removes them from search engines forever", 
+                "Teachers and universities check social media"
+            ], 
+            correct: [1, 0, 1], 
+            maxScore: 30, 
+            correctCount: 3 
+        },
         
-        // 35. Screen setup (type 3 - 4 statement)
-        { tr: 135, id: 200135, type: 3, question: "Select Yes if this is a recommended screen setup for health, No if not.", statements: ["Top of screen at eye level", "Sit 50–70 cm away from screen", "Use very bright room with screen glare", "Take breaks every 20 minutes"], correct: [1, 1, 0, 1], maxScore: 40, correctCount: 4 },
+        { 
+            tr: 135, 
+            id: 200135, 
+            type: 3, 
+            question: "Select Yes if this is a recommended screen setup for health, No if not.", 
+            statements: [
+                "Top of screen at eye level", 
+                "Sit 50–70 cm away from screen", 
+                "Use very bright room with screen glare", 
+                "Take breaks every 20 minutes"
+            ], 
+            correct: [1, 1, 0, 1], 
+            maxScore: 40, 
+            correctCount: 4 
+        },
         
-        // 36. File naming (type 2 - 3 variant)
-        { tr: 136, id: 200136, type: 2, question: "Which three things should be in a good file name for a project? (Choose three)", options: ["A. Your name", "B. Topic or description", "C. Date (YYYY-MM-DD)", "D. Random numbers only", "E. Special characters like !@#"], correct: [0, 1, 2], maxScore: 30, correctCount: 3 },
+        { 
+            tr: 136, 
+            id: 200136, 
+            type: 3, 
+            question: "Select Yes if this is proper online behavior in class chat, No if not.", 
+            statements: [
+                "Use proper language and grammar", 
+                "Type in all caps to get attention", 
+                "Stay on topic", 
+                "Send memes during serious discussion"
+            ], 
+            correct: [1, 0, 1, 0], 
+            maxScore: 40, 
+            correctCount: 4 
+        },
         
-        // 37. Dark mode (type 1 - 10 ball)
-        { tr: 137, id: 200137, type: 1, question: "What is the purpose of 'dark mode' on devices?", options: ["A. Makes screen brighter", "B. Reduces eye strain in low light and saves battery", "C. Changes language", "D. Deletes files faster"], correct: 1, maxScore: 10, correctCount: 1 },
+        { 
+            tr: 137, 
+            id: 200137, 
+            type: 3, 
+            question: "Select True if this is correct about open source software.", 
+            statements: [
+                "You can modify and share the code", 
+                "It's always free to download", 
+                "You must pay for technical support"
+            ], 
+            correct: [1, 1, 0], 
+            maxScore: 30, 
+            correctCount: 3 
+        },
         
-        // 38. Browser buttons (type 5 - 4 matching)
-        { tr: 138, id: 200138, type: 5, question: "Match each browser button to its function.", items: ["Back", "Forward", "Refresh", "Home"], targets: ["Go to previous page", "Go to next page", "Reload current page", "Go to default start page"], correct: { "Back": "Go to previous page", "Forward": "Go to next page", "Refresh": "Reload current page", "Home": "Go to default start page" }, maxScore: 40, correctCount: 4 },
+        // ===== QO'SHIMCHA TYPE 1 SAVOLLAR =====
+        { 
+            tr: 138, 
+            id: 200138, 
+            type: 1, 
+            question: "Which of the following is an example of two-factor authentication?", 
+            options: [
+                "A. Password only", 
+                "B. Password + code sent to phone", 
+                "C. Username only", 
+                "D. Security question only"
+            ], 
+            correct: 1, 
+            maxScore: 10, 
+            correctCount: 1 
+        },
         
-        // 39. Friend request (type 2 - 2 variant)
-        { tr: 139, id: 200139, type: 2, question: "Which two things should you check before accepting friend request from stranger? (Choose two)", options: ["A. Mutual friends", "B. Profile picture and posts", "C. Accept immediately", "D. Check if account is new or fake"], correct: [1, 3], maxScore: 20, correctCount: 2 },
+        { 
+            tr: 139, 
+            id: 200139, 
+            type: 1, 
+            question: "What is phishing?", 
+            options: [
+                "A. A type of computer virus", 
+                "B. Fake emails trying to steal personal information", 
+                "C. A fishing game", 
+                "D. A security software"
+            ], 
+            correct: 1, 
+            maxScore: 10, 
+            correctCount: 1 
+        },
         
-        // 40. Synchronous communication (type 1 - 10 ball)
-        { tr: 140, id: 200140, type: 1, question: "What does 'synchronous' communication mean?", options: ["A. Email and messaging", "B. Real-time like video call or phone", "C. Posting on forum", "D. Sending letters by mail"], correct: 1, maxScore: 10, correctCount: 1 },
+        { 
+            tr: 140, 
+            id: 200140, 
+            type: 1, 
+            question: "What is the main purpose of a firewall?", 
+            options: [
+                "A. To cool down the computer", 
+                "B. To block unauthorized access to your network", 
+                "C. To increase internet speed", 
+                "D. To clean viruses"
+            ], 
+            correct: 1, 
+            maxScore: 10, 
+            correctCount: 1 
+        },
         
-        // 41. Class chat behavior (type 3 - 4 statement)
-        { tr: 141, id: 200141, type: 3, question: "Select Yes if this is proper online behavior in class chat, No if not.", statements: ["Use proper language and grammar", "Type in all caps to get attention", "Stay on topic", "Send memes during serious discussion"], correct: [1, 0, 1, 0], maxScore: 40, correctCount: 4 },
+        { 
+            tr: 141, 
+            id: 200141, 
+            type: 1, 
+            question: "Which of these is a strong password?", 
+            options: [
+                "A. 123456", 
+                "B. password", 
+                "C. M!necr@ft2024", 
+                "D. admin"
+            ], 
+            correct: 2, 
+            maxScore: 10, 
+            correctCount: 1 
+        },
         
-        // 42. Privacy protection (type 2 - 2 variant)
-        { tr: 142, id: 200142, type: 2, question: "Which two ways help protect your privacy on social media? (Choose two)", options: ["A. Set profile to private", "B. Accept all friend requests", "C. Review tags before they appear", "D. Share exact location every day"], correct: [0, 2], maxScore: 20, correctCount: 2 },
+        { 
+            tr: 142, 
+            id: 200142, 
+            type: 1, 
+            question: "What does URL stand for?", 
+            options: [
+                "A. Universal Resource Locator", 
+                "B. Uniform Research Language", 
+                "C. United Random Link", 
+                "D. User Response List"
+            ], 
+            correct: 0, 
+            maxScore: 10, 
+            correctCount: 1 
+        },
         
-        // 43. Citation (type 1 - 10 ball)
-        { tr: 143, id: 200143, type: 1, question: "Which is the best way to cite a website in a school paper?", options: ["A. Just write the link", "B. Include author, title, website name, date accessed, URL", "C. Only write the date", "D. No need to cite websites"], correct: 1, maxScore: 10, correctCount: 1 },
+        { 
+            tr: 143, 
+            id: 200143, 
+            type: 1, 
+            question: "What is cloud storage?", 
+            options: [
+                "A. Storing files in a physical safe", 
+                "B. Storing data on remote servers accessed via internet", 
+                "C. Saving files only on USB drive", 
+                "D. Printing documents"
+            ], 
+            correct: 1, 
+            maxScore: 10, 
+            correctCount: 1 
+        },
         
-        // 44. Open source (type 3 - 3 statement)
-        { tr: 144, id: 200144, type: 3, question: "Select True if this is correct about open source software.", statements: ["You can modify and share the code", "It's always free to download", "You must pay for technical support"], correct: [1, 1, 0], maxScore: 30, correctCount: 3 },
+        { 
+            tr: 144, 
+            id: 200144, 
+            type: 1, 
+            question: "What is the purpose of antivirus software?", 
+            options: [
+                "A. To make computer faster", 
+                "B. To detect and remove malware", 
+                "C. To update Windows", 
+                "D. To backup files"
+            ], 
+            correct: 1, 
+            maxScore: 10, 
+            correctCount: 1 
+        },
         
-        // 45. Digital footprint (type 2 - 2 variant)
-        { tr: 145, id: 200145, type: 2, question: "Which two actions are good for maintaining a positive digital footprint? (Choose two)", options: ["A. Think before posting", "B. Post angry comments about teachers", "C. Share helpful study tips", "D. Use fake names everywhere"], correct: [0, 2], maxScore: 20, correctCount: 2 }
+        { 
+            tr: 145, 
+            id: 200145, 
+            type: 1, 
+            question: "What does Wi-Fi stand for?", 
+            options: [
+                "A. Wireless Fidelity", 
+                "B. Wide Fiber", 
+                "C. Wire Free", 
+                "D. Windows Finder"
+            ], 
+            correct: 0, 
+            maxScore: 10, 
+            correctCount: 1 
+        }
     ];
     
     // Ballarni hisoblash
