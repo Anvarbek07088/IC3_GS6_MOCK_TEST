@@ -2,15 +2,15 @@
 const ALLOWED_DEVICES = [
   "device123",
   "ABC123",
-  "XYZ789",
+  "DEV275D8A",
   "DEV35050F",
   "DEVD511F8",
 ];
 const REACTIVATION_CODE = "1243";
 const USERS = {
-  student1: { password: "123456", name: "Ali Valiyev" },
-  student2: { password: "123456", name: "Jamshid Karimov" },
-  student3: { password: "123456", name: "Dilnoza Ahmedova" },
+  student1: { password: "123456", name: "Anvarbek" },
+  student2: { password: "123456", name: "Anvarbek" },
+  student3: { password: "123456", name: "Anvarbek" },
 };
 
 // ==================== GLOBAL O'ZGARUVCHILAR ====================
