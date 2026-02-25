@@ -630,3 +630,30 @@ body {
 .hidden {
     display: none;
 }
+
+/* QUESTION IMAGE */
+.question-image {
+    width: 100%;
+    margin: 16px 0;
+    border-radius: 16px;
+    overflow: hidden;
+    background: #f8f9fa;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.question-img {
+    max-width: 100%;
+    max-height: 200px;
+    object-fit: contain;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+/* Mobil uchun */
+@media (max-width: 400px) {
+    .question-img {
+        max-height: 150px;
+    }
+}
