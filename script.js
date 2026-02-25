@@ -1,5 +1,5 @@
 // ==================== KONFIGURATSIYA ====================
-const ALLOWED_DEVICES = ['device123', 'ABC123', 'XYZ789', 'TEST001', 'DEVD511F8'];
+const ALLOWED_DEVICES = ['device123', 'ABC123', 'XYZ789', 'DEV35050F', 'DEVD511F8'];
 const REACTIVATION_CODE = 'IC3-2025';
 const USERS = {
     'student1': { password: '123456', name: 'Ali Valiyev' },
