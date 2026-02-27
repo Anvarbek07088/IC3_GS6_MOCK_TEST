@@ -1,7 +1,7 @@
 // ==================== KONFIGURATSIYA ====================
 const ALLOWED_DEVICES = [
   "device123",
-  "ABC123",
+  "DEV504090",
   "DEV275D8A",
   "DEV35050F",
   "DEVD511F8",
