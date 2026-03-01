@@ -1835,3 +1835,6 @@ window.selectAnswer = selectAnswer;
 window.toggleMulti = toggleMulti;
 window.setStatement = setStatement;
 window.goToQuestion = goToQuestion;
+
+
+

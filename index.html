@@ -1,151 +1,167 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="uz">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover"
+    />
     <title>IC3 GS6 | Level 1 & Level 2</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css" />
     <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
-</head>
-<body>
+  </head>
+  <body>
     <!-- LEVEL SELECTION PAGE -->
     <div id="levelPage" class="page active">
-        <div class="level-container">
-            <div class="logo">
-                <h1>IC3 GS6</h1>
-                <p>Global Standard 6</p>
-            </div>
-            
-            <div class="device-box">
-                <span class="device-label">Qurilma ID</span>
-                <div class="device-id" id="deviceDisplay">...</div>
-            </div>
-            
-            <div class="level-buttons">
-                <button class="level-btn level1" onclick="selectLevel(1)">
-                    <span class="level-number">Level 1</span>
-                    <span class="level-desc">Asosiy daraja</span>
-                </button>
-                <button class="level-btn level2" onclick="selectLevel(2)">
-                    <span class="level-number">Level 2</span>
-                    <span class="level-desc">Yuqori daraja</span>
-                </button>
-            </div>
-            
-            <div class="devices-allowed">
-                <small>Ruxsat etilgan qurilmalar: device123, ABC123, XYZ789</small>
-            </div>
+      <div class="level-container">
+        <div class="logo">
+          <h1>IC3 GS6</h1>
+          <p>Global Standard 6</p>
         </div>
+
+        <div class="device-box">
+          <span class="device-label">Qurilma ID</span>
+          <div class="device-id" id="deviceDisplay">...</div>
+        </div>
+
+        <div class="level-buttons">
+          <button class="level-btn level1" onclick="selectLevel(1)">
+            <span class="level-number">Level 1</span>
+            <span class="level-desc">Asosiy daraja</span>
+          </button>
+          <button class="level-btn level2" onclick="selectLevel(2)">
+            <span class="level-number">Level 2</span>
+            <span class="level-desc">Yuqori daraja</span>
+          </button>
+        </div>
+
+        <div class="devices-allowed">
+          <small>Ruxsat etilgan qurilmalar: device123, ABC123, XYZ789</small>
+        </div>
+      </div>
     </div>
 
     <!-- LOGIN PAGE -->
     <div id="loginPage" class="page">
-        <div class="login-container">
-            <div class="back-btn" onclick="goBackToLevels()">← Orqaga</div>
-            
-            <div class="logo">
-                <h2 id="levelTitle">Level 1 Kirish</h2>
-            </div>
-            
-            <div class="device-box">
-                <span class="device-label">Qurilma ID</span>
-                <div class="device-id" id="loginDeviceDisplay">...</div>
-            </div>
-            
-            <div class="input-group">
-                <label>Login</label>
-                <input type="text" id="login" placeholder="student1" autocomplete="off">
-            </div>
-            
-            <div class="input-group">
-                <label>Parol</label>
-                <input type="password" id="password" placeholder="••••••">
-            </div>
-            
-            <button class="login-btn" id="loginBtn">Kirish</button>
-            
-            <div id="loginMessage" class="message"></div>
+      <div class="login-container">
+        <div class="back-btn" onclick="goBackToLevels()">← Orqaga</div>
+
+        <div class="logo">
+          <h2 id="levelTitle">Level 1 Kirish</h2>
         </div>
+
+        <div class="device-box">
+          <span class="device-label">Qurilma ID</span>
+          <div class="device-id" id="loginDeviceDisplay">...</div>
+        </div>
+
+        <div class="input-group">
+          <label>Login</label>
+          <input
+            type="text"
+            id="login"
+            placeholder="student1"
+            autocomplete="off"
+          />
+        </div>
+
+        <div class="input-group">
+          <label>Parol</label>
+          <input type="password" id="password" placeholder="••••••" />
+        </div>
+
+        <button class="login-btn" id="loginBtn">Kirish</button>
+
+        <div id="loginMessage" class="message"></div>
+      </div>
     </div>
-    
+
     <!-- EXAM PAGE -->
     <div id="examPage" class="page">
-        <div class="exam-header">
-            <div class="exam-title" id="examLevel">IC3 GS6 Level 1</div>
-            <div class="exam-user" id="userName"></div>
-            <button class="exit-btn" id="exitBtn">Chiqish</button>
+      <div class="exam-header">
+        <div class="exam-title" id="examLevel">IC3 GS6 Level 1</div>
+        <div class="exam-user" id="userName"></div>
+        <button class="exit-btn" id="exitBtn">Chiqish</button>
+      </div>
+
+      <div class="stats-bar">
+        <div class="stat-item">
+          <span class="stat-label">Vaqt</span>
+          <span class="stat-value" id="timer">50:00</span>
         </div>
-        
-        <div class="stats-bar">
-            <div class="stat-item">
-                <span class="stat-label">Vaqt</span>
-                <span class="stat-value" id="timer">50:00</span>
-            </div>
-            <div class="stat-item">
-                <span class="stat-label">Ball</span>
-                <span class="stat-value" id="score">0</span>
-            </div>
-            <div class="stat-item">
-                <span class="stat-label">Javob</span>
-                <span class="stat-value" id="answered">0/50</span>
-            </div>
+        <div class="stat-item">
+          <span class="stat-label">Ball</span>
+          <span class="stat-value" id="score">0</span>
         </div>
-        
-        <div class="progress-bar">
-            <div class="progress-fill" id="progressFill"></div>
+        <div class="stat-item">
+          <span class="stat-label">Javob</span>
+          <span class="stat-value" id="answered">0/50</span>
         </div>
-        
-        <div class="question-card" id="questionCard">
-            <!-- Question will be loaded here -->
-        </div>
-        
-        <div class="nav-buttons">
-            <button class="nav-btn" id="prevBtn" disabled>←</button>
-            <button class="submit-btn" id="submitBtn">Javobni yuborish</button>
-            <button class="nav-btn" id="nextBtn" disabled>→</button>
-        </div>
-        
-        <div class="question-grid" id="questionGrid"></div>
+      </div>
+
+      <div class="progress-bar">
+        <div class="progress-fill" id="progressFill"></div>
+      </div>
+
+      <div class="question-card" id="questionCard">
+        <!-- Question will be loaded here -->
+      </div>
+
+      <div class="nav-buttons">
+        <button class="nav-btn" id="prevBtn" disabled>←</button>
+        <button class="submit-btn" id="submitBtn">Javobni yuborish</button>
+        <button class="nav-btn" id="nextBtn" disabled>→</button>
+      </div>
+
+      <div class="question-grid" id="questionGrid"></div>
     </div>
-    
+
     <!-- RESULT MODAL -->
     <div id="resultModal" class="modal">
-        <div class="modal-content">
-            <h2 id="resultLevel">Level 1 natijalari</h2>
-            
-            <div class="result-score">
-                <span class="score-big" id="finalScore">0</span>
-                <span class="score-max">/1000</span>
-            </div>
-            
-            <div class="result-status" id="resultStatus">...</div>
-            
-            <div class="result-time" id="resultTime">00:00</div>
-            
-            <div class="chart-container">
-                <canvas id="resultChart"></canvas>
-            </div>
-            
-            <div class="category-scores" id="categoryScores"></div>
-            
-            <div class="result-actions">
-                <button class="modal-btn close-btn" id="closeResultBtn">Yopish</button>
-            </div>
+      <div class="modal-content">
+        <h2 id="resultLevel">Level 1 natijalari</h2>
+
+        <div class="result-score">
+          <span class="score-big" id="finalScore">0</span>
+          <span class="score-max">/1000</span>
         </div>
+
+        <div class="result-status" id="resultStatus">...</div>
+
+        <div class="result-time" id="resultTime">00:00</div>
+
+        <div class="chart-container">
+          <canvas id="resultChart"></canvas>
+        </div>
+
+        <div class="category-scores" id="categoryScores"></div>
+
+        <div class="result-actions">
+          <button class="modal-btn close-btn" id="closeResultBtn">
+            Yopish
+          </button>
+        </div>
+      </div>
     </div>
-    
+
     <!-- LOCK MODAL -->
     <div id="lockModal" class="modal">
-        <div class="modal-content small">
-            <div class="lock-icon">🔒</div>
-            <h3>Test bloklandi</h3>
-            <p>Test yakunlangan. Qayta ochish uchun maxsus kodni kiriting:</p>
-            <input type="password" id="unlockCode" class="unlock-input" placeholder="******">
-            <button class="unlock-btn" id="unlockBtn">Tasdiqlash</button>
-            <div id="unlockMessage" class="small-message"></div>
-        </div>
+      <div class="modal-content small">
+        <div class="lock-icon">🔒</div>
+        <h3>Test bloklandi</h3>
+        <p>Test yakunlangan. Qayta ochish uchun maxsus kodni kiriting:</p>
+        <input
+          type="password"
+          id="unlockCode"
+          class="unlock-input"
+          placeholder="******"
+        />
+        <button class="unlock-btn" id="unlockBtn">Tasdiqlash</button>
+        <div id="unlockMessage" class="small-message"></div>
+      </div>
     </div>
 
     <script src="script.js"></script>
-</body>
+    <script src="data.js"></script>
+  </body>
 </html>

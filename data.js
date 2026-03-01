@@ -1,595 +1,196 @@
-function loadQuestions() {
-  questions = [
-    // TYPE 1 (10 ball) - 25 ta = 250 ball
-    {
-      id: 1,
-      type: 1,
-      text: "What is the main function of the Start button in Windows?",
-      options: [
-        "A. 2",
-        "B. 3",
-        "C. 1",
-        "D. 4",
-      ],
-      correct: 2,
-      maxScore: 10,
-      img: "img/s1.jpg",
-    },
-    {
-      id: 2,
-      type: 1,
-      text: "What does CPU stand for?",
-      options: [
-        "A. Central Processing Unit",
-        "B. Computer Personal Unit",
-        "C. Central Power Unit",
-        "D. Core Processing Unit",
-      ],
-      correct: 0,
-      maxScore: 10,
-    },
-    {
-      id: 3,
-      type: 1,
-      text: "What is the purpose of a firewall?",
-      options: [
-        "A. Cool computer",
-        "B. Block unauthorized access",
-        "C. Increase speed",
-        "D. Clean viruses",
-      ],
-      correct: 1,
-      maxScore: 10,
-    },
-    {
-      id: 4,
-      type: 1,
-      text: "What is phishing?",
-      options: [
-        "A. Computer virus",
-        "B. Fake emails to steal info",
-        "C. Fishing game",
-        "D. Security software",
-      ],
-      correct: 1,
-      maxScore: 10,
-    },
-    {
-      id: 5,
-      type: 1,
-      text: "What does CC mean in email?",
-      options: [
-        "A. Copy Certificate",
-        "B. Carbon Copy",
-        "C. Confidential Copy",
-        "D. Closed Circuit",
-      ],
-      correct: 1,
-      maxScore: 10,
-    },
-    {
-      id: 6,
-      type: 1,
-      text: "What does URL stand for?",
-      options: [
-        "A. Universal Resource Locator",
-        "B. Uniform Research Language",
-        "C. United Random Link",
-        "D. User Response List",
-      ],
-      correct: 0,
-      maxScore: 10,
-    },
-    {
-      id: 7,
-      type: 1,
-      text: "What is cloud storage?",
-      options: [
-        "A. Physical safe",
-        "B. Remote servers via internet",
-        "C. USB drive only",
-        "D. Printed documents",
-      ],
-      correct: 1,
-      maxScore: 10,
-    },
-    {
-      id: 8,
-      type: 1,
-      text: "What does Wi-Fi stand for?",
-      options: [
-        "A. Wireless Fidelity",
-        "B. Wide Fiber",
-        "C. Wire Free",
-        "D. Windows Finder",
-      ],
-      correct: 0,
-      maxScore: 10,
-    },
-    {
-      id: 9,
-      type: 1,
-      text: "Which is a strong password?",
-      options: ["A. 123456", "B. password123", "C. M!necr@ft2024$", "D. admin"],
-      correct: 2,
-      maxScore: 10,
-    },
-    {
-      id: 10,
-      type: 1,
-      text: "Another term for double-sided printing?",
-      options: ["A. Simplex", "B. Duplex", "C. Two-line", "D. Book printing"],
-      correct: 1,
-      maxScore: 10,
-    },
-    {
-      id: 11,
-      type: 1,
-      text: "Best way to find referencing sources?",
-      options: [
-        "A. Library",
-        "B. Research paper",
-        "C. Search engines",
-        "D. Social media",
-      ],
-      correct: 2,
-      maxScore: 10,
-    },
-    {
-      id: 12,
-      type: 1,
-      text: "What is 2FA?",
-      options: [
-        "A. Two passwords",
-        "B. Two forms of verification",
-        "C. Two accounts",
-        "D. Two changes",
-      ],
-      correct: 1,
-      maxScore: 10,
-    },
-    {
-      id: 13,
-      type: 1,
-      text: "Best format for sharing documents?",
-      options: ["A. .docx", "B. .txt", "C. .pdf", "D. .rtf"],
-      correct: 2,
-      maxScore: 10,
-    },
-    {
-      id: 14,
-      type: 1,
-      text: "What does JPEG stand for?",
-      options: [
-        "A. Joint Photographic Experts Group",
-        "B. Java Photo Editor",
-        "C. Jpeg Photo Group",
-        "D. Just Photo Edit",
-      ],
-      correct: 0,
-      maxScore: 10,
-    },
-    {
-      id: 15,
-      type: 1,
-      text: "Which device shown in the image is an input device?",
-      options: [
-        "A. 1",
-        "B. 4",
-        "C. 2",
-        "D. 3",
-      ],
-      correct: 1,
-      img:"img/s2.jpg",
-      maxScore: 10,
-    },
-    {
-      id: 16,
-      type: 1,
-      text: "What is alt text for?",
-      options: [
-        "A. Faster loading",
-        "B. Describe images for screen readers",
-        "C. Change colors",
-        "D. Add music",
-      ],
-      correct: 1,
-      maxScore: 10,
-    },
-    {
-      id: 17,
-      type: 1,
-      text: "What does ISP stand for?",
-      options: [
-        "A. Internet Service Provider",
-        "B. Internal Security",
-        "C. Internet Speed",
-        "D. International Service",
-      ],
-      correct: 0,
-      maxScore: 10,
-    },
-    {
-      id: 18,
-      type: 1,
-      text: "Purpose of antivirus?",
-      options: [
-        "A. Faster computer",
-        "B. Detect malware",
-        "C. Update Windows",
-        "D. Backup",
-      ],
-      correct: 1,
-      maxScore: 10,
-    },
-    {
-      id: 19,
-      type: 1,
-      text: "What does RAM stand for?",
-      options: [
-        "A. Random Access Memory",
-        "B. Read Access",
-        "C. Rapid Access",
-        "D. Random Allocation",
-      ],
-      correct: 0,
-      maxScore: 10,
-    },
-    {
-      id: 20,
-      type: 1,
-      text: "Which of the following connectors is a standard USB cable?",
-      options: ["A. 3", "B. 1", "C. 4", "D. 2"],
-      correct: 2,
-      img:"img/s3.jpg",
-      maxScore: 10,
-    },
-    {
-      id: 21,
-      type: 1,
-      text: "Purpose of router?",
-      options: [
-        "A. Store files",
-        "B. Connect devices to internet",
-        "C. Print",
-        "D. Charge",
-      ],
-      correct: 1,
-      maxScore: 10,
-    },
-    {
-      id: 22,
-      type: 1,
-      text: "What does IP address stand for?",
-      options: [
-        "A. Internet Protocol",
-        "B. Internal Program",
-        "C. Internet Provider",
-        "D. International Protocol",
-      ],
-      correct: 0,
-      maxScore: 10,
-    },
-    {
-      id: 23,
-      type: 1,
-      text: "HD resolution?",
-      options: ["A. 640x480", "B. 1280x720", "C. 800x600", "D. 1024x768"],
-      correct: 1,
-      maxScore: 10,
-    },
-    {
-      id: 24,
-      type: 1,
-      text: "What is a browser?",
-      options: [
-        "A. Word processor",
-        "B. Web access software",
-        "C. Email client",
-        "D. Game",
-      ],
-      correct: 1,
-      maxScore: 10,
-    },
-    {
-      id: 25,
-      type: 1,
-      text: "What is malware?",
-      options: [
-        "A. Good software",
-        "B. Malicious software",
-        "C. Hardware",
-        "D. Network",
-      ],
-      correct: 1,
-      maxScore: 10,
-    },
+// ==================== SCREENSHOTNI BLOKLASH - QORA EKRAN ====================
 
-    // TYPE 2 IKKI VARIANTLI (20 ball) - 10 ta = 200 ball
-    {
-      id: 26,
-      type: 2,
-      text: "Which two are input devices? (Choose two)",
-      options: ["A. 2", "B. 4", "C. 1", "D. 3"],
-      correct: [0, 1],
-      img:"img/s4.jpg",
-      maxScore: 20,
-    },
-    {
-      id: 27,
-      type: 2,
-      text: "Which two are output devices? (Choose two)",
-      options: ["A. Keyboard", "B. Monitor", "C. Mouse", "D. Speaker"],
-      correct: [1, 3],
-      maxScore: 20,
-    },
-    {
-      id: 28,
-      type: 2,
-      text: "Which two are web browsers? (Choose two)",
-      options: ["A. Chrome", "B. Word", "C. Firefox", "D. Reader"],
-      correct: [0, 2],
-      maxScore: 20,
-    },
-    {
-      id: 29,
-      type: 2,
-      text: "Safe password practices? (Choose two)",
-      options: [
-        "A. Same password",
-        "B. Password manager",
-        "C. Sticky notes",
-        "D. 2FA",
-      ],
-      correct: [1, 3],
-      maxScore: 20,
-    },
-    {
-      id: 30,
-      type: 2,
-      text: "Phishing email signs? (Choose two)",
-      options: [
-        "A. Urgent requests",
-        "B. Known friend",
-        "C. Suspicious links",
-        "D. Perfect grammar",
-      ],
-      correct: [0, 2],
-      maxScore: 20,
-    },
-    {
-      id: 31,
-      type: 2,
-      text: "Cloud storage benefits? (Choose two)",
-      options: [
-        "A. Access anywhere",
-        "B. Hack-proof",
-        "C. Auto backup",
-        "D. Free forever",
-      ],
-      correct: [0, 2],
-      maxScore: 20,
-    },
-    {
-      id: 32,
-      type: 2,
-      text: "Types of malware? (Choose two)",
-      options: ["A. Virus", "B. Firewall", "C. Trojan", "D. Antivirus"],
-      correct: [0, 2],
-      maxScore: 20,
-    },
-    {
-      id: 33,
-      type: 2,
-      text: "Common print settings? (Choose two)",
-      options: [
-        "A. Three lines",
-        "B. Transparent",
-        "C. Slides per page",
-        "D. Pages per sheet",
-      ],
-      correct: [2, 3],
-      maxScore: 20,
-    },
-    {
-      id: 34,
-      type: 2,
-      text: "Printing methods? (Choose two)",
-      options: ["A. PDF", "B. From web", "C. Plotter", "D. To email"],
-      correct: [0, 2],
-      maxScore: 20,
-    },
-    {
-      id: 35,
-      type: 2,
-      text: "SSO benefits? (Choose two)",
-      options: [
-        "A. Stronger security",
-        "B. Access all apps",
-        "C. One login details",
-        "D. No passwords",
-      ],
-      correct: [0, 2],
-      maxScore: 20,
-    },
+(function() {
+    // ==================== QORA EKRAN YARATISH ====================
+    function showBlackScreen() {
+        // Qora ekran elementi
+        const blackScreen = document.createElement('div');
+        blackScreen.id = 'screenshot-block';
+        blackScreen.style.cssText = `
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: black;
+            z-index: 999999;
+            display: block;
+            pointer-events: none;
+        `;
+        
+        // Eski qora ekranni o'chirish
+        const oldScreen = document.getElementById('screenshot-block');
+        if (oldScreen) oldScreen.remove();
+        
+        // Yangi qora ekranni qo'shish
+        document.body.appendChild(blackScreen);
+        
+        // 100ms dan keyin qora ekranni olib tashlash
+        setTimeout(() => {
+            const screen = document.getElementById('screenshot-block');
+            if (screen) screen.remove();
+        }, 100);
+    }
 
-    // TYPE 2 UCH VARIANTLI (30 ball) - 5 ta = 150 ball
-    {
-      id: 36,
-      type: 2,
-      text: "System software examples? (Choose three)",
-      options: ["A. Windows", "B. macOS", "C. Linux", "D. Word", "E. Chrome"],
-      correct: [0, 1, 2],
-      maxScore: 30,
-    },
-    {
-      id: 37,
-      type: 2,
-      text: "Computer components? (Choose three)",
-      options: ["A. CPU", "B. RAM", "C. Hard Drive", "D. Office", "E. Windows"],
-      correct: [0, 1, 2],
-      maxScore: 30,
-    },
-    {
-      id: 38,
-      type: 2,
-      text: "Image file extensions? (Choose three)",
-      options: ["A. .jpg", "B. .png", "C. .gif", "D. .mp3", "E. .docx"],
-      correct: [0, 1, 2],
-      maxScore: 30,
-    },
-    {
-      id: 39,
-      type: 2,
-      text: "Document file extensions? (Choose three)",
-      options: ["A. .docx", "B. .pdf", "C. .txt", "D. .mp4", "E. .exe"],
-      correct: [0, 1, 2],
-      maxScore: 30,
-    },
-    {
-      id: 40,
-      type: 2,
-      text: "Data storage types? (Choose three)",
-      options: ["A. HDD", "B. ROM", "C. SSD", "D. USB", "E. RAM"],
-      correct: [0, 2, 3],
-      maxScore: 30,
-    },
+    // ==================== PRINTSCREEN TUGMASI ====================
+    document.addEventListener('keydown', function(e) {
+        // PrintScreen tugmasi
+        if (e.key === 'PrintScreen' || e.keyCode === 44) {
+            e.preventDefault();
+            e.stopPropagation();
+            showBlackScreen();
+            return false;
+        }
+        
+        // Windows + Shift + S (Snipping Tool)
+        if (e.metaKey && e.shiftKey && e.key === 's') {
+            e.preventDefault();
+            e.stopPropagation();
+            showBlackScreen();
+            return false;
+        }
+        
+        // Alt + PrintScreen
+        if (e.altKey && (e.key === 'PrintScreen' || e.keyCode === 44)) {
+            e.preventDefault();
+            e.stopPropagation();
+            showBlackScreen();
+            return false;
+        }
+    });
 
-    // TYPE 3 TRUE/FALSE (40 ball) - 10 ta = 400 ball
-    {
-      id: 41,
-      type: 3,
-      text: "Computer hardware statements",
-      statements: [
-        "CPU is brain of computer",
-        "RAM stores permanently",
-        "SSD is faster than HDD",
-        "Monitor is input device",
-      ],
-      correct: [1, 0, 1, 0],
-      maxScore: 40,
-    },
-    {
-      id: 42,
-      type: 3,
-      text: "Internet safety statements",
-      statements: [
-        "Public WiFi safe for banking",
-        "HTTPS is secure",
-        "Cookies always viruses",
-        "2FA increases security",
-      ],
-      correct: [0, 1, 0, 1],
-      maxScore: 40,
-    },
-    {
-      id: 43,
-      type: 3,
-      text: "Online behavior (Yes/No)",
-      statements: [
-        "Share password with friends",
-        "Logout on public computers",
-        "Same password for all",
-        "Report suspicious messages",
-      ],
-      correct: [0, 1, 0, 1],
-      maxScore: 40,
-    },
-    {
-      id: 44,
-      type: 3,
-      text: "File management statements",
-      statements: [
-        "Files need descriptive names",
-        "Folders help organize",
-        "Recycle Bin delete is permanent",
-        "Cloud storage always free",
-      ],
-      correct: [1, 1, 1, 0],
-      maxScore: 40,
-    },
-    {
-      id: 45,
-      type: 3,
-      text: "Password practices (Yes/No)",
-      statements: [
-        "Mix letters and symbols",
-        "Use birthdate",
-        "Change regularly",
-        "Same for email and banking",
-      ],
-      correct: [1, 0, 1, 0],
-      maxScore: 40,
-    },
-    {
-      id: 46,
-      type: 3,
-      text: "Copyright statements (Yes/No)",
-      statements: [
-        "1992 image free",
-        "Photo 100 years old",
-        "Unregistered lyrics free",
-        "Document can't copy",
-      ],
-      correct: [0, 1, 0, 0],
-      maxScore: 40,
-    },
-    {
-      id: 47,
-      type: 3,
-      text: "Network statements",
-      statements: [
-        "LAN small area",
-        "WiFi more secure",
-        "Router connects devices",
-        "IP identifies device",
-      ],
-      correct: [1, 0, 1, 1],
-      maxScore: 40,
-    },
-    {
-      id: 48,
-      type: 3,
-      text: "Digital citizenship",
-      statements: [
-        "Think before posting",
-        "Everything is private",
-        "Cyberbullying serious",
-        "Respect privacy",
-      ],
-      correct: [1, 0, 1, 1],
-      maxScore: 40,
-    },
-    {
-      id: 49,
-      type: 3,
-      text: "Email etiquette",
-      statements: [
-        "ALL CAPS is shouting",
-        "Reply all always",
-        "Clear subject lines",
-        "Forward without permission",
-      ],
-      correct: [1, 0, 1, 0],
-      maxScore: 40,
-    },
-    {
-      id: 50,
-      type: 3,
-      text: "Security habits (Yes/No)",
-      statements: [
-        "Same password everywhere",
-        "Auto updates on",
-        "Logout shared computers",
-      ],
-      correct: [0, 1, 1],
-      maxScore: 30,
-    },
-  ];
+    // ==================== MOBILE UCHUN ====================
+    // App background ga o'tganda (screenshot olinayotganda)
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            // App background ga o'tdi - qora ekranga tayyorlanish
+            window.screenshotTaking = true;
+        } else {
+            // App ga qaytib keldi
+            if (window.screenshotTaking) {
+                showBlackScreen();
+                window.screenshotTaking = false;
+            }
+        }
+    });
+    
+    // App switch (multitasking)
+    window.addEventListener('blur', function() {
+        window.appBlurTime = Date.now();
+    });
+    
+    window.addEventListener('focus', function() {
+        if (window.appBlurTime) {
+            const blurDuration = Date.now() - window.appBlurTime;
+            // 100ms dan 2 soniyagacha - screenshot uchun tipik vaqt
+            if (blurDuration > 100 && blurDuration < 2000) {
+                showBlackScreen();
+            }
+            window.appBlurTime = null;
+        }
+    });
 
-  userAnswers = new Array(questions.length).fill(null);
-  updateUI();
-}
+    // ==================== DEVELOPER TOOLS ====================
+    // F12, Ctrl+Shift+I, Ctrl+Shift+J ni bloklash
+    document.addEventListener('keydown', function(e) {
+        // F12
+        if (e.key === 'F12' || e.keyCode === 123) {
+            e.preventDefault();
+            e.stopPropagation();
+            showBlackScreen();
+            return false;
+        }
+        
+        // Ctrl+Shift+I
+        if ((e.ctrlKey || e.metaKey) && e.shiftKey && (e.key === 'i' || e.key === 'I' || e.keyCode === 73)) {
+            e.preventDefault();
+            e.stopPropagation();
+            showBlackScreen();
+            return false;
+        }
+        
+        // Ctrl+Shift+J
+        if ((e.ctrlKey || e.metaKey) && e.shiftKey && (e.key === 'j' || e.key === 'J' || e.keyCode === 74)) {
+            e.preventDefault();
+            e.stopPropagation();
+            showBlackScreen();
+            return false;
+        }
+        
+        // Ctrl+U (view source)
+        if ((e.ctrlKey || e.metaKey) && (e.key === 'u' || e.key === 'U' || e.keyCode === 85)) {
+            e.preventDefault();
+            e.stopPropagation();
+            showBlackScreen();
+            return false;
+        }
+    });
 
+    // ==================== KONTEKST MENYU ====================
+    document.addEventListener('contextmenu', function(e) {
+        e.preventDefault();
+        e.stopPropagation();
+        return false;
+    });
 
+    // ==================== COPY/PASTE ====================
+    document.addEventListener('copy', function(e) {
+        e.preventDefault();
+        e.stopPropagation();
+        return false;
+    });
+    
+    document.addEventListener('cut', function(e) {
+        e.preventDefault();
+        e.stopPropagation();
+        return false;
+    });
+    
+    document.addEventListener('paste', function(e) {
+        e.preventDefault();
+        e.stopPropagation();
+        return false;
+    });
+    
+    document.addEventListener('keydown', function(e) {
+        if (e.ctrlKey || e.metaKey) {
+            if (e.key === 'c' || e.key === 'C' || e.keyCode === 67) {
+                e.preventDefault();
+                e.stopPropagation();
+                return false;
+            }
+            if (e.key === 'x' || e.key === 'X' || e.keyCode === 88) {
+                e.preventDefault();
+                e.stopPropagation();
+                return false;
+            }
+            if (e.key === 'v' || e.key === 'V' || e.keyCode === 86) {
+                e.preventDefault();
+                e.stopPropagation();
+                return false;
+            }
+        }
+    });
 
+    // ==================== MATN TANLASHNI BLOKLASH ====================
+    document.addEventListener('selectstart', function(e) {
+        e.preventDefault();
+        e.stopPropagation();
+        return false;
+    });
+    
+    // CSS orqali tanlashni bloklash
+    const style = document.createElement('style');
+    style.innerHTML = `
+        * {
+            -webkit-user-select: none !important;
+            -moz-user-select: none !important;
+            -ms-user-select: none !important;
+            user-select: none !important;
+            -webkit-touch-callout: none !important;
+        }
+    `;
+    document.head.appendChild(style);
+
+    console.log('✅ Screenshot bloklash tizimi faollashtirildi');
+})();
