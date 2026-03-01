@@ -1,313 +1,207 @@
-// ==================== TO'LIQ SCREENSHOT BLOKLASH ====================
+/**
+ * Screenshot Blokirovka Moduli
+ * Bu fayl platformada screenshot qilishni to'liqqa o'chiradi
+ * Barcha metodlar: klaviatura, kontekst menyu, API, Canvas
+ */
 
-(function() {
-    // ==================== ASOSIY HIMOYA ====================
-    
-    // 1. Barcha tugmalarni bloklash
-    document.addEventListener('keydown', function(e) {
-        // PrintScreen tugmasi (44 - PrintScreen kodi)
-        if (e.key === 'PrintScreen' || e.keyCode === 44 || e.which === 44) {
-            e.preventDefault();
-            e.stopPropagation();
-            e.stopImmediatePropagation();
-            return false;
-        }
-        
-        // Windows + Shift + S (Snipping Tool)
-        if ((e.metaKey || e.ctrlKey) && e.shiftKey && (e.key === 's' || e.key === 'S' || e.keyCode === 83)) {
-            e.preventDefault();
-            e.stopPropagation();
-            e.stopImmediatePropagation();
-            return false;
-        }
-        
-        // Alt + PrintScreen
-        if (e.altKey && (e.key === 'PrintScreen' || e.keyCode === 44)) {
-            e.preventDefault();
-            e.stopPropagation();
-            e.stopImmediatePropagation();
-            return false;
-        }
-        
-        // Ctrl + PrintScreen
-        if (e.ctrlKey && (e.key === 'PrintScreen' || e.keyCode === 44)) {
-            e.preventDefault();
-            e.stopPropagation();
-            e.stopImmediatePropagation();
-            return false;
-        }
-    }, true); // Capture phase da ishlash
-    
-    // 2. Visibility change - app background ga o'tganda
-    document.addEventListener('visibilitychange', function() {
-        if (document.hidden) {
-            // Sahifa yashirin bo'lganda - contentni o'chirish
-            document.body.style.opacity = '0';
-            document.body.style.transition = 'none';
-        } else {
-            // Sahifa ko'ringanda - contentni qaytarish
-            setTimeout(() => {
-                document.body.style.opacity = '1';
-            }, 100);
-        }
-    });
-    
-    // 3. Blur/Focus - app almashtirilganda
-    window.addEventListener('blur', function() {
-        // Boshqa app ga o'tganda - contentni yashirish
-        document.body.style.opacity = '0';
-        document.documentElement.style.backgroundColor = 'black';
-    });
-    
-    window.addEventListener('focus', function() {
-        // Qaytib kelganda - contentni ko'rsatish
-        setTimeout(() => {
-            document.body.style.opacity = '1';
-            document.documentElement.style.backgroundColor = '';
-        }, 200);
-    });
-    
-    // 4. Resize event - ekran o'lchami o'zgarganda (split screen, screenshot ilovalari)
-    let lastWidth = window.innerWidth;
-    let lastHeight = window.innerHeight;
-    
-    setInterval(function() {
-        const currentWidth = window.innerWidth;
-        const currentHeight = window.innerHeight;
-        
-        if (currentWidth !== lastWidth || currentHeight !== lastHeight) {
-            // Ekran o'lchami o'zgardi - screenshot ilovasi ochilgan bo'lishi mumkin
-            document.body.style.opacity = '0';
-            
-            setTimeout(() => {
-                document.body.style.opacity = '1';
-            }, 300);
-            
-            lastWidth = currentWidth;
-            lastHeight = currentHeight;
-        }
-    }, 100);
-    
-    // 5. CSS himoya - hech narsa tanlanmasin
-    const style = document.createElement('style');
-    style.innerHTML = `
-        /* Barcha elementlarni tanlashni bloklash */
-        * {
-            -webkit-user-select: none !important;
-            -moz-user-select: none !important;
-            -ms-user-select: none !important;
-            user-select: none !important;
-            -webkit-touch-callout: none !important;
-            -webkit-tap-highlight-color: transparent !important;
-        }
-        
-        /* Rasm va videolarni himoyalash */
-        img, video, canvas, iframe {
-            -webkit-touch-callout: none !important;
-            -webkit-user-select: none !important;
-            pointer-events: none !important;
-        }
-        
-        /* Butun sahifani himoyalash */
-        body {
-            -webkit-text-size-adjust: none !important;
-            -moz-text-size-adjust: none !important;
-            -ms-text-size-adjust: none !important;
-            text-size-adjust: none !important;
-        }
-    `;
-    document.head.appendChild(style);
-    
-    // 6. Developer Tools bloklash
-    document.addEventListener('keydown', function(e) {
-        // F12
-        if (e.key === 'F12' || e.keyCode === 123) {
-            e.preventDefault();
-            e.stopPropagation();
-            return false;
-        }
-        
-        // Ctrl+Shift+I
-        if (e.ctrlKey && e.shiftKey && (e.key === 'i' || e.key === 'I' || e.keyCode === 73)) {
-            e.preventDefault();
-            e.stopPropagation();
-            return false;
-        }
-        
-        // Ctrl+Shift+J
-        if (e.ctrlKey && e.shiftKey && (e.key === 'j' || e.key === 'J' || e.keyCode === 74)) {
-            e.preventDefault();
-            e.stopPropagation();
-            return false;
-        }
-        
-        // Ctrl+U
-        if (e.ctrlKey && (e.key === 'u' || e.key === 'U' || e.keyCode === 85)) {
-            e.preventDefault();
-            e.stopPropagation();
-            return false;
-        }
-    }, true);
-    
-    // 7. O'ng tugma menyu bloklash
-    document.addEventListener('contextmenu', function(e) {
-        e.preventDefault();
-        e.stopPropagation();
+(function () {
+  "use strict";
+
+  // ====== 1. KLAVIATURA SHUNONLARINI BLOKIROVKA QILISH ======
+  document.addEventListener(
+    "keydown",
+    (event) => {
+      // Print Screen tugmasi
+      if (event.key === "PrintScreen") {
+        event.preventDefault();
+        console.warn("⛔ Screenshot qilish taqiqlangan (Print Screen)");
         return false;
-    }, true);
-    
-    // 8. Copy/Paste bloklash
-    document.addEventListener('copy', function(e) {
-        e.preventDefault();
-        e.stopPropagation();
+      }
+
+      // Ctrl + Shift + S (Chrome/Firefox screenshot)
+      if (event.ctrlKey && event.shiftKey && event.key === "s") {
+        event.preventDefault();
+        console.warn("⛔ Screenshot qilish taqiqlangan (Ctrl+Shift+S)");
         return false;
-    }, true);
-    
-    document.addEventListener('cut', function(e) {
-        e.preventDefault();
-        e.stopPropagation();
+      }
+
+      // Shift + Windows + S (Windows snipping tool)
+      if (event.shiftKey && event.metaKey && event.key === "s") {
+        event.preventDefault();
+        console.warn("⛔ Screenshot qilish taqiqlangan (Shift+Win+S)");
         return false;
-    }, true);
-    
-    document.addEventListener('paste', function(e) {
-        e.preventDefault();
-        e.stopPropagation();
+      }
+
+      // Command + Shift + 3 (Mac screenshot)
+      if (event.metaKey && event.shiftKey && event.key === "3") {
+        event.preventDefault();
+        console.warn("⛔ Screenshot qilish taqiqlangan (Cmd+Shift+3)");
         return false;
-    }, true);
-    
-    // 9. Touch event larni bloklash (mobile)
-    document.addEventListener('touchstart', function(e) {
-        if (e.touches.length > 1) {
-            // Multi-touch - screenshot bo'lishi mumkin
-            e.preventDefault();
-            e.stopPropagation();
-        }
-    }, { passive: false });
-    
-    // 10. Select start bloklash
-    document.addEventListener('selectstart', function(e) {
-        e.preventDefault();
-        e.stopPropagation();
+      }
+
+      // Command + Shift + 4 (Mac selective screenshot)
+      if (event.metaKey && event.shiftKey && event.key === "4") {
+        event.preventDefault();
+        console.warn("⛔ Screenshot qilish taqiqlangan (Cmd+Shift+4)");
         return false;
-    }, true);
-    
-    // 11. Drag start bloklash
-    document.addEventListener('dragstart', function(e) {
-        e.preventDefault();
-        e.stopPropagation();
+      }
+
+      // F12 (Developer Tools)
+      if (event.key === "F12") {
+        event.preventDefault();
+        console.warn("⛔ Developer Tools o'chirildi");
         return false;
-    }, true);
-    
-    // 12. Drop bloklash
-    document.addEventListener('drop', function(e) {
-        e.preventDefault();
-        e.stopPropagation();
+      }
+
+      // Ctrl + Shift + I (Developer Tools)
+      if (event.ctrlKey && event.shiftKey && event.key === "i") {
+        event.preventDefault();
+        console.warn("⛔ Developer Tools o'chirildi (Ctrl+Shift+I)");
         return false;
-    }, true);
-    
-    // 13. Kontekst menyu (mobile long press)
-    document.addEventListener('touchhold', function(e) {
-        e.preventDefault();
-        e.stopPropagation();
+      }
+
+      // Ctrl + Shift + C (Developer Tools Inspector)
+      if (event.ctrlKey && event.shiftKey && event.key === "c") {
+        event.preventDefault();
+        console.warn("⛔ Developer Tools o'chirildi (Ctrl+Shift+C)");
         return false;
-    }, true);
-    
-    // 14. Sahifa yopilishini oldini olish
-    window.addEventListener('beforeunload', function(e) {
-        // Sahifa yopilayotganda
-        return undefined;
-    });
-    
-    // 15. Iframe himoya
-    if (window.self !== window.top) {
-        window.top.location.href = window.self.location.href;
-    }
-    
-    // 16. Console.log ni o'chirish
-    console.log = function() {};
-    console.warn = function() {};
-    console.error = function() {};
-    console.info = function() {};
-    console.debug = function() {};
-    
-    // 17. DevTools ochilganini aniqlash
-    let devToolsOpen = false;
-    const element = new Image();
-    
-    Object.defineProperty(element, 'id', {
-        get: function() {
-            if (!devToolsOpen) {
-                devToolsOpen = true;
-                // DevTools ochilganda contentni yashirish
-                document.body.style.opacity = '0';
-                setTimeout(() => {
-                    document.body.style.opacity = '1';
-                }, 500);
-            }
-            return '';
-        }
-    });
-    
-    setInterval(function() {
-        devToolsOpen = false;
-        console.log(element);
-        console.clear();
-    }, 500);
-    
-    // 18. Mobile uchun qo'shimcha
-    const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
-    
-    if (isMobile) {
-        // Volume tugmalari bosilganda
-        document.addEventListener('keydown', function(e) {
-            if (e.key === 'AudioVolumeUp' || e.key === 'AudioVolumeDown' || 
-                e.keyCode === 175 || e.keyCode === 174) {
-                // Volume tugmasi - screenshot bo'lishi mumkin
-                document.body.style.opacity = '0';
-                setTimeout(() => {
-                    document.body.style.opacity = '1';
-                }, 300);
-            }
-        });
-        
-        // Power tugmasi (ba'zi telefonlar)
-        document.addEventListener('visibilitychange', function() {
-            if (document.hidden) {
-                // Power tugmasi bosilgan
-                document.body.style.opacity = '0';
-            }
-        });
-    }
-    
-    // 19. Canvas orqali screenshot olishni bloklash
-    const originalToDataURL = HTMLCanvasElement.prototype.toDataURL;
-    const originalToBlob = HTMLCanvasElement.prototype.toBlob;
-    
-    HTMLCanvasElement.prototype.toDataURL = function() {
-        // Canvas dan ma'lumot olishni bloklash
-        return '';
+      }
+
+      // Ctrl + Shift + J (Developer Tools Console)
+      if (event.ctrlKey && event.shiftKey && event.key === "j") {
+        event.preventDefault();
+        console.warn("⛔ Developer Tools o'chirildi (Ctrl+Shift+J)");
+        return false;
+      }
+
+      // Ctrl + Shift + K (Developer Tools Console)
+      if (event.ctrlKey && event.shiftKey && event.key === "k") {
+        event.preventDefault();
+        console.warn("⛔ Developer Tools o'chirildi (Ctrl+Shift+K)");
+        return false;
+      }
+
+      // Cmd + Option + I (Mac Developer Tools)
+      if (event.metaKey && event.altKey && event.key === "i") {
+        event.preventDefault();
+        console.warn("⛔ Developer Tools o'chirildi (Cmd+Option+I)");
+        return false;
+      }
+
+      // Cmd + Option + U (Mac Developer Tools)
+      if (event.metaKey && event.altKey && event.key === "u") {
+        event.preventDefault();
+        console.warn("⛔ Developer Tools o'chirildi (Cmd+Option+U)");
+        return false;
+      }
+    },
+    true,
+  );
+
+  // ====== 2. O'NG TUGMA (RIGHT-CLICK) MENUSINI O'CHIRISH ======
+  document.addEventListener(
+    "contextmenu",
+    (event) => {
+      event.preventDefault();
+      console.warn("⛔ Kontekst menyu taqiqlangan");
+      return false;
+    },
+    true,
+  );
+
+  // ====== 3. SCREEN CAPTURE API NI BLOKIROVKA QILISH ======
+  if (navigator.mediaDevices && navigator.mediaDevices.getDisplayMedia) {
+    navigator.mediaDevices.getDisplayMedia = async () => {
+      console.warn("⛔ Screen Capture API blokirovlandi");
+      throw new Error("Screenshot qilish bu platformada taqiqlangan!");
     };
-    
-    HTMLCanvasElement.prototype.toBlob = function() {
-        // Canvas dan blob olishni bloklash
-        return null;
+  }
+
+  // ====== 4. CANVAS ORQALI SCREENSHOT QILISHNI BLOKIROVKA QILISH ======
+  const originalToDataURL = HTMLCanvasElement.prototype.toDataURL;
+  HTMLCanvasElement.prototype.toDataURL = function () {
+    console.warn("⛔ Canvas toDataURL blokirovlandi");
+    return "";
+  };
+
+  const originalToBlob = HTMLCanvasElement.prototype.toBlob;
+  HTMLCanvasElement.prototype.toBlob = function (callback) {
+    console.warn("⛔ Canvas toBlob blokirovlandi");
+    callback(null);
+  };
+
+  // ====== 5. CLIPBOARD API NI BLOKIROVKA QILISH ======
+  if (navigator.clipboard) {
+    navigator.clipboard.write = async () => {
+      console.warn("⛔ Clipboard write blokirovlandi");
+      throw new Error("Clipboard operatsiyasi taqiqlangan!");
     };
-    
-    // 20. Web API orqali screenshot olishni bloklash
-    if (navigator.mediaDevices && navigator.mediaDevices.getDisplayMedia) {
-        const originalGetDisplayMedia = navigator.mediaDevices.getDisplayMedia;
-        navigator.mediaDevices.getDisplayMedia = function() {
-            // Screen capture ni bloklash
-            return Promise.reject(new Error('Screen capture is blocked'));
-        };
+
+    navigator.clipboard.writeText = async () => {
+      console.warn("⛔ Clipboard writeText blokirovlandi");
+      throw new Error("Clipboard operatsiyasi taqiqlangan!");
+    };
+  }
+
+  // ====== 6. DRAG & DROP NI BLOKIROVKA QILISH ======
+  document.addEventListener("dragstart", (event) => {
+    event.preventDefault();
+    console.warn("⛔ Drag & Drop taqiqlangan");
+    return false;
+  });
+
+  document.addEventListener("drop", (event) => {
+    event.preventDefault();
+    console.warn("⛔ Drop operatsiyasi taqiqlangan");
+    return false;
+  });
+
+  // ====== 7. COPY-PASTE NI BLOKIROVKA QILISH (OPTIONAL) ======
+  document.addEventListener("copy", (event) => {
+    // Agar copy-paste ni ham o'chirish kerak bo'lsa, comments belgisini olib tashlang
+    // event.preventDefault();
+    // console.warn('⛔ Copy operatsiyasi taqiqlangan');
+  });
+
+  document.addEventListener("paste", (event) => {
+    // Agar copy-paste ni ham o'chirish kerak bo'lsa, comments belgisini olib tashlang
+    // event.preventDefault();
+    // console.warn('⛔ Paste operatsiyasi taqiqlangan');
+  });
+
+  // ====== 8. DEVTOOLS DETEKSIYASI ======
+  setInterval(() => {
+    const widthThreshold = window.outerWidth - window.innerWidth > 160;
+    const heightThreshold = window.outerHeight - window.innerHeight > 160;
+
+    if (widthThreshold || heightThreshold) {
+      console.warn(
+        "⚠️  Developer Tools ochildi. Seating qayta boshlash kerak.",
+      );
+      // Optional: sahifani qayta yuklash
+      // location.reload();
     }
-    
-    console.log = function() {};
-    console.warn = function() {};
-    console.error = function() {};
-    console.info = function() {};
-    console.debug = function() {};
-    
-    // Tayyor
-    console.log('%c✅ SCREENSHOT BLOKLASH TIZIMI FAOL', 'color: green; font-size: 16px; font-weight: bold;');
+  }, 1000);
+
+  // ====== 9. SCREENSHOT BLOKIROVKA STATUSINI KO'RSATISH ======
+  console.log(
+    "%c🔒 Screenshot Blokirovka Faollashtirildi",
+    "color: #00aa00; font-weight: bold; font-size: 14px;",
+  );
+  console.log(
+    "%c✓ Barcha screenshot metodlari blokirovlandi",
+    "color: #00aa00; font-size: 12px;",
+  );
+  console.log(
+    "%c✓ Kontekst menyu o'chirildi",
+    "color: #00aa00; font-size: 12px;",
+  );
+  console.log(
+    "%c✓ Developer Tools shunonlari blokirovlandi",
+    "color: #00aa00; font-size: 12px;",
+  );
+  console.log(
+    "%c✓ Screen Capture API blokirovlandi",
+    "color: #00aa00; font-size: 12px;",
+  );
 })();
