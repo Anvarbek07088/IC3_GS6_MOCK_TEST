@@ -3,22 +3,53 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
-    <title>IC3 GS6 | 1000 ball</title>
+    <title>IC3 GS6 | Level 1 & Level 2</title>
     <link rel="stylesheet" href="style.css">
     <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
 </head>
 <body>
-    <!-- LOGIN PAGE -->
-    <div id="loginPage" class="page active">
-        <div class="login-container">
+    <!-- LEVEL SELECTION PAGE -->
+    <div id="levelPage" class="page active">
+        <div class="level-container">
             <div class="logo">
                 <h1>IC3 GS6</h1>
-                <p>1000 ball | 50 daqiqa</p>
+                <p>Global Standard 6</p>
             </div>
             
             <div class="device-box">
                 <span class="device-label">Qurilma ID</span>
                 <div class="device-id" id="deviceDisplay">...</div>
+            </div>
+            
+            <div class="level-buttons">
+                <button class="level-btn level1" onclick="selectLevel(1)">
+                    <span class="level-number">Level 1</span>
+                    <span class="level-desc">Asosiy daraja</span>
+                </button>
+                <button class="level-btn level2" onclick="selectLevel(2)">
+                    <span class="level-number">Level 2</span>
+                    <span class="level-desc">Yuqori daraja</span>
+                </button>
+            </div>
+            
+            <div class="devices-allowed">
+                <small>Ruxsat etilgan qurilmalar: device123, ABC123, XYZ789</small>
+            </div>
+        </div>
+    </div>
+
+    <!-- LOGIN PAGE -->
+    <div id="loginPage" class="page">
+        <div class="login-container">
+            <div class="back-btn" onclick="goBackToLevels()">← Orqaga</div>
+            
+            <div class="logo">
+                <h2 id="levelTitle">Level 1 Kirish</h2>
+            </div>
+            
+            <div class="device-box">
+                <span class="device-label">Qurilma ID</span>
+                <div class="device-id" id="loginDeviceDisplay">...</div>
             </div>
             
             <div class="input-group">
@@ -34,17 +65,13 @@
             <button class="login-btn" id="loginBtn">Kirish</button>
             
             <div id="loginMessage" class="message"></div>
-            
-            <div class="devices-allowed">
-                <small>Ruxsat etilgan qurilmalar: device123, ABC123, XYZ789</small>
-            </div>
         </div>
     </div>
     
     <!-- EXAM PAGE -->
     <div id="examPage" class="page">
         <div class="exam-header">
-            <div class="exam-title">IC3 GS6</div>
+            <div class="exam-title" id="examLevel">IC3 GS6 Level 1</div>
             <div class="exam-user" id="userName"></div>
             <button class="exit-btn" id="exitBtn">Chiqish</button>
         </div>
@@ -84,7 +111,7 @@
     <!-- RESULT MODAL -->
     <div id="resultModal" class="modal">
         <div class="modal-content">
-            <h2>Test natijalari</h2>
+            <h2 id="resultLevel">Level 1 natijalari</h2>
             
             <div class="result-score">
                 <span class="score-big" id="finalScore">0</span>
