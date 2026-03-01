@@ -1,5 +1,5 @@
 // ==================== KONFIGURATSIYA ====================
-const ALLOWED_DEVICES = ["DEV46B2BE", "DEV504090", "XYZ789", "TEST001", "TEST002"];
+const ALLOWED_DEVICES = ["DEV46B2BE", "DEV504090", "DEV346B7B", "TEST001", "TEST002"];
 const REACTIVATION_CODE = "122334";
 const USERS = {
   level1: {
@@ -7,7 +7,7 @@ const USERS = {
     student2: { password: "123456", name: "Anvarbek (L1)" },
   },
   level2: {
-    student3: { password: "123456", name: "Anvarbek (L2)" },
+    student3: { password: "654321", name: "Anvarbek (L2)" },
     student4: { password: "123456", name: "Anvarbek(L2)" },
   },
 };
