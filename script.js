@@ -1,5 +1,5 @@
 // ==================== KONFIGURATSIYA ====================
-const ALLOWED_DEVICES = ["DEV46B2BE", "DEV504090", "DEV346B7B", "TEST001", "TEST002"];
+const ALLOWED_DEVICES = ["DEV46B2BE", "DEV504090", "DEV4D2ED9", "TEST001", "TEST002"];
 const REACTIVATION_CODE = "122334";
 const USERS = {
   level1: {
