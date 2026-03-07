@@ -1,5 +1,13 @@
 // ==================== KONFIGURATSIYA ====================
-const ALLOWED_DEVICES = ["DEV46B2BE", "DEV504090", "DEV4D2ED9", "DEV5DF571",'DEV7E1961','DEV504090'];
+const ALLOWED_DEVICES = [
+  "DEV46B2BE",
+  "DEV504090",
+  "DEV4D2ED9",
+  "DEV5DF571",
+  'DEV27258F',
+  "DEV7E1961",
+  "DEV504090",
+];
 const REACTIVATION_CODE = "122334";
 const USERS = {
   level1: {
@@ -611,761 +619,734 @@ const level1Questions = [
 // ==================== LEVEL 2 SAVOLLARI (IC3 GS6 Level 2) ====================
 // ==================== LEVEL 2 SAVOLLARI (IC3 GS6 Level 2) - 50 QUESTIONS = 1000 POINTS ====================
 const level2Questions = [
-    // ==================== TYPE 1: SINGLE ANSWER (10 points each) - 20 questions = 200 points ====================
-    
-    // 1. Formatting text
-    { 
-        id: 1, 
-        type: 1, 
-        text: "What does formatting text mean in a word processor?", 
-        options: [
-            "A. Translating text to another language", 
-            "B. Changing the appearance of text (font, color, size, etc.)", 
-            "C. Deleting text permanently", 
-            "D. Saving text to memory"
-        ], 
-        correct: 1, 
-        maxScore: 10,
-        category: "Software"
-    },
-    
-    // 2. Comments in documents
-     { 
-        id: 2, 
-        type: 2, 
-        img:"img/e41.jpg",
-        text: "Which option correctly matches each document app shown in the image with the company that created it?", 
-        options: [
-            "A. Apple", 
-            "B. Google", 
-            "C. Samsung", 
-            "D. LG",
-            "E. Mcrosoft",
-            "F. Kingsoft"
-        ], 
-        correct: [0,1,4,5], 
-        maxScore: 40,
-        category: "Software"
-    },
-    
-    
-    // 3. Output devices
-    { 
-        id: 3, 
-        type: 1, 
-        text: "When you wear headphones to hear sound, which device setting is being used?", 
-        options: [
-            "A. Input device", 
-            "B. Output device", 
-            "C. Network device", 
-            "D. Storage device"
-        ], 
-        correct: 1, 
-        maxScore: 10,
-        category: "Hardware"
-    },
-    
-    // 4. Identity theft
-    { 
-        id: 4, 
-        type: 1, 
-        text: "What is it called when someone creates a fake account pretending to be another person to deceive others?", 
-        options: [
-            "A. Trolling", 
-            "B. Cyberbullying", 
-            "C. Impersonation (identity theft)", 
-            "D. Phishing"
-        ], 
-        correct: 2, 
-        maxScore: 10,
-        category: "Security"
-    },
-    
-    // 5. Browser font settings
-    { 
-        id: 5, 
-        type: 1, 
-        text: "Can you change font settings in a web browser?", 
-        options: [
-            "A. Yes", 
-            "B. No"
-        ], 
-        correct: 0, 
-        maxScore: 10,
-        category: "Software"
-    },
-    
-    // 6. Auto Fill in spreadsheets
-    { 
-        id: 6, 
-        type: 1, 
-        text: "Which function in spreadsheets automatically fills cells with sequential values?", 
-        options: [
-            "A. Auto Format", 
-            "B. Auto Fill", 
-            "C. Auto Fit", 
-            "D. Auto Sort"
-        ], 
-        correct: 1, 
-        maxScore: 10,
-        category: "Software"
-    },
-    
-    // 7. AND operator
-    { 
-        id: 7, 
-        type: 1, 
-        text: "In search engines, what does the AND operator do?", 
-        options: [
-            "A. Shows results with at least one term", 
-            "B. Shows results only when both terms are present", 
-            "C. Excludes the word from search", 
-            "D. Searches for synonyms"
-        ], 
-        correct: 1, 
-        maxScore: 10,
-        category: "Internet"
-    },
-    
-    // 8. OR operator
-    { 
-        id: 8, 
-        type: 1, 
-        text: "In search engines, what does the OR operator do?", 
-        options: [
-            "A. Both terms must appear together", 
-            "B. Only the first term appears", 
-            "C. Shows results with at least one term", 
-            "D. Hides the results"
-        ], 
-        correct: 2, 
-        maxScore: 10,
-        category: "Internet"
-    },
-    
-    // 9. Version history
-    { 
-        id: 9, 
-        type: 1, 
-        text: "What is the purpose of version history in documents?", 
-        options: [
-            "A. To change document design", 
-            "B. To restore previous versions", 
-            "C. To configure printer settings", 
-            "D. To increase internet speed"
-        ], 
-        correct: 1, 
-        maxScore: 10,
-        category: "Software"
-    },
-    
-    // 10. Email etiquette
-    { 
-        id: 10, 
-        type: 1, 
-        text: "Which email practice is NOT considered professional etiquette?", 
-        options: [
-            "A. Simple greeting", 
-            "B. Unnecessary capital letters and excessive symbols", 
-            "C. Short and clear text", 
-            "D. Adding a signature"
-        ], 
-        correct: 1, 
-        maxScore: 10,
-        category: "Ethics"
-    },
-    
-    // 11. FPS in games
-    { 
-        id: 11, 
-        type: 1, 
-        text: "Which component most affects FPS (Frames Per Second) in 3D games?", 
-        options: [
-            "A. Printer", 
-            "B. CPU (Processor)", 
-            "C. Scanner", 
-            "D. Microphone"
-        ], 
-        correct: 1, 
-        maxScore: 10,
-        category: "Hardware"
-    },
-    
-    // 12. Operating system
-    { 
-        id: 12, 
-        type: 1, 
-        text: "What is an operating system?", 
-        options: [
-            "A. A computer hardware component", 
-            "B. Software that manages hardware and other software", 
-            "C. An internet service", 
-            "D. A type of web browser"
-        ], 
-        correct: 1, 
-        maxScore: 10,
-        category: "Software"
-    },
-    
-    // 13. Volatile memory
-    { 
-        id: 13, 
-        type: 1, 
-        text: "Which type of memory is volatile (temporary)?", 
-        options: [
-            "A. ROM", 
-            "B. RAM", 
-            "C. SSD", 
-            "D. Flash Drive"
-        ], 
-        correct: 1, 
-        maxScore: 10,
-        category: "Hardware"
-    },
-    
-    // 14. Browser extensions
-    { 
-        id: 14, 
-        type: 1, 
-        text: "What is the purpose of browser extensions?", 
-        options: [
-            "A. They slow down the computer", 
-            "B. They extend browser functionality", 
-            "C. They remove viruses", 
-            "D. They update the operating system"
-        ], 
-        correct: 1, 
-        maxScore: 10,
-        category: "Software"
-    },
-    
-    // 15. Auto Fit in spreadsheets
-    { 
-        id: 15, 
-        type: 1, 
-        text: "Which function in spreadsheets automatically adjusts cell size to fit content?", 
-        options: [
-            "A. Auto Fill", 
-            "B. Auto Fit", 
-            "C. Auto Complete", 
-            "D. Auto Sum"
-        ], 
-        correct: 1, 
-        maxScore: 10,
-        category: "Software"
-    },
-    
-    // 16. Phishing
-    { 
-        id: 16, 
-        type: 1, 
-        text: "What is stealing personal information through fake links called?", 
-        options: [
-            "A. Phishing", 
-            "B. Trolling", 
-            "C. Piracy", 
-            "D. Cyberstalking"
-        ], 
-        correct: 0, 
-        maxScore: 10,
-        category: "Security"
-    },
-    
-    // 17. Microphone device type
-    { 
-        id: 17, 
-        type: 1, 
-        text: "During a video conference, microphone issues relate to which type of device?", 
-        options: [
-            "A. Input device", 
-            "B. Output device", 
-            "C. Storage device", 
-            "D. Network device"
-        ], 
-        correct: 0, 
-        maxScore: 10,
-        category: "Hardware"
-    },
-    
-    // 18. Bold text
-    { 
-        id: 18, 
-        type: 1, 
-        text: "Making text bold is an example of what?", 
-        options: [
-            "A. Editing", 
-            "B. Formatting", 
-            "C. Saving", 
-            "D. Printing"
-        ], 
-        correct: 1, 
-        maxScore: 10,
-        category: "Software"
-    },
-    
-    // 19. Minus sign in search
-    { 
-        id: 19, 
-        type: 1, 
-        text: "What is the minus sign (-) used for in search engines?", 
-        options: [
-            "A. To include the word mandatory", 
-            "B. To exclude the word from results", 
-            "C. To search for synonyms", 
-            "D. To sort by date"
-        ], 
-        correct: 1, 
-        maxScore: 10,
-        category: "Internet"
-    },
-    
-    // 20. Camera eye contact
-    { 
-        id: 20, 
-        type: 1, 
-        text: "Looking directly at the camera during video calls helps with what?", 
-        options: [
-            "A. Decreases video quality", 
-            "B. Creates a professional appearance", 
-            "C. Increases internet speed", 
-            "D. Improves sound quality"
-        ], 
-        correct: 1, 
-        maxScore: 10,
-        category: "Ethics"
-    },
-    
-    // ==================== TYPE 2: TWO ANSWERS (20 points each) - 10 questions = 200 points ====================
-    
-    // 21. Correct ways to give feedback
-    { 
-        id: 21, 
-        type: 2, 
-        text: "Which two actions are correct ways to point out errors to a document author? (Choose two)", 
-        options: [
-            "A. Write politely and respectfully", 
-            "B. Write in all capital letters", 
-            "C. Provide clear and accurate information in comments", 
-            "D. Criticize without reason"
-        ], 
-        correct: [0, 2], 
-        maxScore: 20,
-        category: "Ethics"
-    },
-    
-    // 22. Benefits of teamwork
-    { 
-        id: 22, 
-        type: 2, 
-        text: "What are the main benefits of teamwork? (Choose two)", 
-        options: [
-            "A. Deeper understanding of the topic", 
-            "B. Everyone must work at the same pace", 
-            "C. Opportunity to share experience", 
-            "D. Responsibility decreases"
-        ], 
-        correct: [0, 2], 
-        maxScore: 20,
-        category: "Ethics"
-    },
-    
-    // 23. FOMO examples
-    { 
-        id: 23, 
-        type: 2, 
-        text: "Which situations are examples of FOMO (Fear Of Missing Out)? (Choose two)", 
-        options: [
-            "A. Feeling bad when seeing friends having fun", 
-            "B. Buying a new gaming console to keep up with others", 
-            "C. Sending viruses", 
-            "D. Hacking accounts"
-        ], 
-        correct: [0, 1], 
-        maxScore: 20,
-        category: "Ethics"
-    },
-    
-    // 24. Opinion indicators
-    { 
-        id: 24, 
-        type: 2, 
-        text: "Which signs indicate an article contains mostly opinions? (Choose two)", 
-        options: [
-            "A. Statistical data is not provided", 
-            "B. Author insults others' opinions", 
-            "C. Sources are cited", 
-            "D. Date is clearly given"
-        ], 
-        correct: [0, 1], 
-        maxScore: 20,
-        category: "Internet"
-    },
-    
-    // 25. Video conference preparation
-    { 
-        id: 25, 
-        type: 2, 
-        text: "Which two tasks should be done before a video conference? (Choose two)", 
-        options: [
-            "A. Adjust camera to eye level", 
-            "B. Place strong light behind you", 
-            "C. Test technology beforehand", 
-            "D. Download games"
-        ], 
-        correct: [0, 2], 
-        maxScore: 20,
-        category: "Ethics"
-    },
-    
-    // 26. Constructive feedback
-    { 
-        id: 26, 
-        type: 2, 
-        text: "Which are rules for giving constructive feedback? (Choose two)", 
-        options: [
-            "A. Write respectfully", 
-            "B. Provide clear evidence", 
-            "C. Insult the person", 
-            "D. Reject without reason"
-        ], 
-        correct: [0, 1], 
-        maxScore: 20,
-        category: "Ethics"
-    },
-    
-    // 27. Collaboration essentials
-    { 
-        id: 27, 
-        type: 2, 
-        text: "What is important for effective collaboration on shared documents? (Choose two)", 
-        options: [
-            "A. Assign roles", 
-            "B. Track versions", 
-            "C. Only one person can open the document", 
-            "D. Edit without comments"
-        ], 
-        correct: [0, 1], 
-        maxScore: 20,
-        category: "Software"
-    },
-    
-    // 28. Article reliability
-    { 
-        id: 28, 
-        type: 2, 
-        text: "What should you consider when evaluating online article reliability? (Choose two)", 
-        options: [
-            "A. Author and sources", 
-            "B. Publication date", 
-            "C. Image quality", 
-            "D. Number of ads"
-        ], 
-        correct: [0, 1], 
-        maxScore: 20,
-        category: "Internet"
-    },
-    
-    // 29. Cyberbullying examples
-    { 
-        id: 29, 
-        type: 2, 
-        text: "Which are examples of cyberbullying? (Choose two)", 
-        options: [
-            "A. Sending repeated insulting messages", 
-            "B. Mocking someone online", 
-            "C. Buying a new device", 
-            "D. Sharing study materials"
-        ], 
-        correct: [0, 1], 
-        maxScore: 20,
-        category: "Security"
-    },
-    
-    // 30. Data security recommendations
-    { 
-        id: 30, 
-        type: 2, 
-        text: "What is recommended to improve data security? (Choose two)", 
-        options: [
-            "A. Two-factor authentication", 
-            "B. Strong passwords", 
-            "C. Tell passwords to everyone", 
-            "D. Use the same password everywhere"
-        ], 
-        correct: [0, 1], 
-        maxScore: 20,
-        category: "Security"
-    },
-    
-    // ==================== TYPE 2: THREE ANSWERS (30 points each) - 6 questions = 180 points ====================
-    
-    // 31. Cloud storage benefits
-    { 
-        id: 31, 
-        type: 2, 
-        text: "Which three are benefits of using cloud storage? (Choose three)", 
-        options: [
-            "A. Access files from anywhere", 
-            "B. Automatic backup", 
-            "C. Easy file sharing", 
-            "D. Files are always 100% secure", 
-            "E. Requires no internet connection"
-        ], 
-        correct: [0, 1, 2], 
-        maxScore: 30,
-        category: "Internet"
-    },
-    
-    // 32. Strong passwords
-    { 
-        id: 32, 
-        type: 2, 
-        text: "Which three are examples of strong passwords? (Choose three)", 
-        options: [
-            "A. P@ssw0rd2024!", 
-            "B. 123456", 
-            "C. M!necr@ft$Gamer", 
-            "D. Qwerty123", 
-            "E. password", 
-            "F. Sun$hine2025"
-        ], 
-        correct: [0, 2, 5], 
-        maxScore: 30,
-        category: "Security"
-    },
-    
-    // 33. Phishing email signs
-    { 
-        id: 33, 
-        type: 2, 
-        text: "Which three are signs of a phishing email? (Choose three)", 
-        options: [
-            "A. Urgent requests for personal information", 
-            "B. Suspicious links", 
-            "C. Poor grammar and spelling", 
-            "D. Email from a known friend", 
-            "E. Professional company logo", 
-            "F. Generic greetings like 'Dear Customer'"
-        ], 
-        correct: [0, 1, 5], 
-        maxScore: 30,
-        category: "Security"
-    },
-    
-    // 34. Input devices
-    { 
-        id: 34, 
-        type: 2, 
-        text: "Which three are examples of input devices? (Choose three)", 
-        options: [
-            "A. Keyboard", 
-            "B. Monitor", 
-            "C. Mouse", 
-            "D. Printer", 
-            "E. Microphone", 
-            "F. Speaker"
-        ], 
-        correct: [0, 2, 4], 
-        maxScore: 30,
-        category: "Hardware"
-    },
-    
-    // 35. Output devices
-    { 
-        id: 35, 
-        type: 2, 
-        text: "Which three are examples of output devices? (Choose three)", 
-        options: [
-            "A. Monitor", 
-            "B. Keyboard", 
-            "C. Speaker", 
-            "D. Printer", 
-            "E. Mouse", 
-            "F. Scanner"
-        ], 
-        correct: [0, 2, 3], 
-        maxScore: 30,
-        category: "Hardware"
-    },
-    
-    // 36. Web browsers
-    { 
-        id: 36, 
-        type: 2, 
-        text: "Which three are common web browsers? (Choose three)", 
-        options: [
-            "A. Google Chrome", 
-            "B. Microsoft Word", 
-            "C. Mozilla Firefox", 
-            "D. Safari", 
-            "E. Adobe Reader", 
-            "F. Microsoft Edge"
-        ], 
-        correct: [0, 2, 5], 
-        maxScore: 30,
-        category: "Software"
-    },
-    
-    // ==================== TYPE 3: TRUE/FALSE (10-40 points) - 14 questions = 380 points ====================
-    
-    // 37. HDMI cable
-    { 
-        id: 37, 
-        type: 3, 
-        text: "Select True or False: HDMI cable can connect a computer to a monitor.", 
-        statements: ["HDMI cable can connect a computer to a monitor."], 
-        correct: [1], 
-        maxScore: 10,
-        category: "Hardware"
-    },
-    
-    // 38. DVI cable
-    { 
-        id: 38, 
-        type: 3, 
-        text: "Select True or False: DVI cable can transfer data between two computers over a network.", 
-        statements: ["DVI cable can transfer data between two computers over a network."], 
-        correct: [0], 
-        maxScore: 10,
-        category: "Hardware"
-    },
-    
-    // 39. 64-bit processors
-    { 
-        id: 39, 
-        type: 3, 
-        text: "Select True or False: Most modern processors support 64-bit systems.", 
-        statements: ["Most modern processors support 64-bit systems."], 
-        correct: [1], 
-        maxScore: 10,
-        category: "Hardware"
-    },
-    
-    // 40. CPU cooling
-    { 
-        id: 40, 
-        type: 3, 
-        text: "Select True or False: A CPU can function without a cooling system.", 
-        statements: ["A CPU can function without a cooling system."], 
-        correct: [0], 
-        maxScore: 10,
-        category: "Hardware"
-    },
-    
-    // 41. Cloud upload
-    { 
-        id: 41, 
-        type: 3, 
-        text: "Select True or False: When you upload a file to cloud storage, it is automatically deleted from your computer.", 
-        statements: ["When you upload a file to cloud storage, it is automatically deleted from your computer."], 
-        correct: [0], 
-        maxScore: 10,
-        category: "Internet"
-    },
-    
-    // 42. FTP transfer
-    { 
-        id: 42, 
-        type: 3, 
-        text: "Select True or False: Files can be sent to centralized storage via FTP.", 
-        statements: ["Files can be sent to centralized storage via FTP."], 
-        correct: [1], 
-        maxScore: 10,
-        category: "Internet"
-    },
-    
-    // 43. Cloud backups
-    { 
-        id: 43, 
-        type: 3, 
-        text: "Select True or False: Cloud systems can support automatic backups.", 
-        statements: ["Cloud systems can support automatic backups."], 
-        correct: [1], 
-        maxScore: 10,
-        category: "Internet"
-    },
-    
-    // 44. RAM data retention
-    { 
-        id: 44, 
-        type: 3, 
-        text: "Select True or False: Data in RAM is retained after power is turned off.", 
-        statements: ["Data in RAM is retained after power is turned off."], 
-        correct: [0], 
-        maxScore: 10,
-        category: "Hardware"
-    },
-    
-    // 45. Strong password
-    { 
-        id: 45, 
-        type: 3, 
-        text: "Select True or False: A strong password should include letters, numbers, and symbols.", 
-        statements: ["A strong password should include letters, numbers, and symbols."], 
-        correct: [1], 
-        maxScore: 10,
-        category: "Security"
-    },
-    
-    // 46. Comments in documents
-    { 
-        id: 46, 
-        type: 3, 
-        text: "Select True or False: Comment text changes the main content of a document.", 
-        statements: ["Comment text changes the main content of a document."], 
-        correct: [0], 
-        maxScore: 10,
-        category: "Software"
-    },
-    
-    // 47. Cloud internet requirement
-    { 
-        id: 47, 
-        type: 3, 
-        text: "Select True or False: Cloud storage only works when you have internet connection.", 
-        statements: ["Cloud storage only works when you have internet connection."], 
-        correct: [1], 
-        maxScore: 10,
-        category: "Internet"
-    },
-    
-    // 48. Academic sources
-    { 
-        id: 48, 
-        type: 3, 
-        text: "Select True or False: Every website is a valid academic source.", 
-        statements: ["Every website is a valid academic source."], 
-        correct: [0], 
-        maxScore: 10,
-        category: "Internet"
-    },
-    
-    // 49. Version history
-    { 
-        id: 49, 
-        type: 3, 
-        text: "Select True or False: Version history is only for viewing, not restoring.", 
-        statements: ["Version history is only for viewing, not restoring."], 
-        correct: [0], 
-        maxScore: 10,
-        category: "Software"
-    },
-    
-    // 50. CPU function
-    { 
-        id: 50, 
-        type: 3, 
-        text: "Select True or False: The CPU is the main processing center of a computer.", 
-        statements: ["The CPU is the main processing center of a computer."], 
-        correct: [1], 
-        maxScore: 10,
-        category: "Hardware"
-    },
-    
-    
+  // ==================== TYPE 1: SINGLE ANSWER (10 points each) - 20 questions = 200 points ====================
+
+  // 1. Formatting text
+  {
+    id: 1,
+    type: 1,
+    text: "What does formatting text mean in a word processor?",
+    options: [
+      "A. Translating text to another language",
+      "B. Changing the appearance of text (font, color, size, etc.)",
+      "C. Deleting text permanently",
+      "D. Saving text to memory",
+    ],
+    correct: 1,
+    maxScore: 10,
+    category: "Software",
+  },
+
+  // 2. Comments in documents
+  {
+    id: 2,
+    type: 2,
+    img: "img/e41.jpg",
+    text: "Which option correctly matches each document app shown in the image with the company that created it?",
+    options: [
+      "A. Apple",
+      "B. Google",
+      "C. Samsung",
+      "D. LG",
+      "E. Mcrosoft",
+      "F. Kingsoft",
+    ],
+    correct: [0, 1, 4, 5],
+    maxScore: 40,
+    category: "Software",
+  },
+
+  // 3. Output devices
+  {
+    id: 3,
+    type: 1,
+    text: "When you wear headphones to hear sound, which device setting is being used?",
+    options: [
+      "A. Input device",
+      "B. Output device",
+      "C. Network device",
+      "D. Storage device",
+    ],
+    correct: 1,
+    maxScore: 10,
+    category: "Hardware",
+  },
+
+  // 4. Identity theft
+  {
+    id: 4,
+    type: 1,
+    text: "What is it called when someone creates a fake account pretending to be another person to deceive others?",
+    options: [
+      "A. Trolling",
+      "B. Cyberbullying",
+      "C. Impersonation (identity theft)",
+      "D. Phishing",
+    ],
+    correct: 2,
+    maxScore: 10,
+    category: "Security",
+  },
+
+  // 5. Browser font settings
+  {
+    id: 5,
+    type: 1,
+    text: "Can you change font settings in a web browser?",
+    options: ["A. Yes", "B. No"],
+    correct: 0,
+    maxScore: 10,
+    category: "Software",
+  },
+
+  // 6. Auto Fill in spreadsheets
+  {
+    id: 6,
+    type: 1,
+    text: "Which function in spreadsheets automatically fills cells with sequential values?",
+    options: ["A. Auto Format", "B. Auto Fill", "C. Auto Fit", "D. Auto Sort"],
+    correct: 1,
+    maxScore: 10,
+    category: "Software",
+  },
+
+  // 7. AND operator
+  {
+    id: 7,
+    type: 1,
+    text: "In search engines, what does the AND operator do?",
+    options: [
+      "A. Shows results with at least one term",
+      "B. Shows results only when both terms are present",
+      "C. Excludes the word from search",
+      "D. Searches for synonyms",
+    ],
+    correct: 1,
+    maxScore: 10,
+    category: "Internet",
+  },
+
+  // 8. OR operator
+  {
+    id: 8,
+    type: 1,
+    text: "In search engines, what does the OR operator do?",
+    options: [
+      "A. Both terms must appear together",
+      "B. Only the first term appears",
+      "C. Shows results with at least one term",
+      "D. Hides the results",
+    ],
+    correct: 2,
+    maxScore: 10,
+    category: "Internet",
+  },
+
+  // 9. Version history
+  {
+    id: 9,
+    type: 1,
+    text: "What is the purpose of version history in documents?",
+    options: [
+      "A. To change document design",
+      "B. To restore previous versions",
+      "C. To configure printer settings",
+      "D. To increase internet speed",
+    ],
+    correct: 1,
+    maxScore: 10,
+    category: "Software",
+  },
+
+  // 10. Email etiquette
+  {
+    id: 10,
+    type: 1,
+    text: "Which email practice is NOT considered professional etiquette?",
+    options: [
+      "A. Simple greeting",
+      "B. Unnecessary capital letters and excessive symbols",
+      "C. Short and clear text",
+      "D. Adding a signature",
+    ],
+    correct: 1,
+    maxScore: 10,
+    category: "Ethics",
+  },
+
+  // 11. FPS in games
+  {
+    id: 11,
+    type: 1,
+    text: "Which component most affects FPS (Frames Per Second) in 3D games?",
+    options: [
+      "A. Printer",
+      "B. CPU (Processor)",
+      "C. Scanner",
+      "D. Microphone",
+    ],
+    correct: 1,
+    maxScore: 10,
+    category: "Hardware",
+  },
+
+  // 12. Operating system
+  {
+    id: 12,
+    type: 1,
+    text: "What is an operating system?",
+    options: [
+      "A. A computer hardware component",
+      "B. Software that manages hardware and other software",
+      "C. An internet service",
+      "D. A type of web browser",
+    ],
+    correct: 1,
+    maxScore: 10,
+    category: "Software",
+  },
+
+  // 13. Volatile memory
+  {
+    id: 13,
+    type: 1,
+    text: "Which type of memory is volatile (temporary)?",
+    options: ["A. ROM", "B. RAM", "C. SSD", "D. Flash Drive"],
+    correct: 1,
+    maxScore: 10,
+    category: "Hardware",
+  },
+
+  // 14. Browser extensions
+  {
+    id: 14,
+    type: 1,
+    text: "What is the purpose of browser extensions?",
+    options: [
+      "A. They slow down the computer",
+      "B. They extend browser functionality",
+      "C. They remove viruses",
+      "D. They update the operating system",
+    ],
+    correct: 1,
+    maxScore: 10,
+    category: "Software",
+  },
+
+  // 15. Auto Fit in spreadsheets
+  {
+    id: 15,
+    type: 1,
+    text: "Which function in spreadsheets automatically adjusts cell size to fit content?",
+    options: ["A. Auto Fill", "B. Auto Fit", "C. Auto Complete", "D. Auto Sum"],
+    correct: 1,
+    maxScore: 10,
+    category: "Software",
+  },
+
+  // 16. Phishing
+  {
+    id: 16,
+    type: 1,
+    text: "What is stealing personal information through fake links called?",
+    options: ["A. Phishing", "B. Trolling", "C. Piracy", "D. Cyberstalking"],
+    correct: 0,
+    maxScore: 10,
+    category: "Security",
+  },
+
+  // 17. Microphone device type
+  {
+    id: 17,
+    type: 1,
+    text: "During a video conference, microphone issues relate to which type of device?",
+    options: [
+      "A. Input device",
+      "B. Output device",
+      "C. Storage device",
+      "D. Network device",
+    ],
+    correct: 0,
+    maxScore: 10,
+    category: "Hardware",
+  },
+
+  // 18. Bold text
+  {
+    id: 18,
+    type: 1,
+    text: "Making text bold is an example of what?",
+    options: ["A. Editing", "B. Formatting", "C. Saving", "D. Printing"],
+    correct: 1,
+    maxScore: 10,
+    category: "Software",
+  },
+
+  // 19. Minus sign in search
+  {
+    id: 19,
+    type: 1,
+    text: "What is the minus sign (-) used for in search engines?",
+    options: [
+      "A. To include the word mandatory",
+      "B. To exclude the word from results",
+      "C. To search for synonyms",
+      "D. To sort by date",
+    ],
+    correct: 1,
+    maxScore: 10,
+    category: "Internet",
+  },
+
+  // 20. Camera eye contact
+  {
+    id: 20,
+    type: 1,
+    text: "Looking directly at the camera during video calls helps with what?",
+    options: [
+      "A. Decreases video quality",
+      "B. Creates a professional appearance",
+      "C. Increases internet speed",
+      "D. Improves sound quality",
+    ],
+    correct: 1,
+    maxScore: 10,
+    category: "Ethics",
+  },
+
+  // ==================== TYPE 2: TWO ANSWERS (20 points each) - 10 questions = 200 points ====================
+
+  // 21. Correct ways to give feedback
+  {
+    id: 21,
+    type: 2,
+    text: "Which two actions are correct ways to point out errors to a document author? (Choose two)",
+    options: [
+      "A. Write politely and respectfully",
+      "B. Write in all capital letters",
+      "C. Provide clear and accurate information in comments",
+      "D. Criticize without reason",
+    ],
+    correct: [0, 2],
+    maxScore: 20,
+    category: "Ethics",
+  },
+
+  // 22. Benefits of teamwork
+  {
+    id: 22,
+    type: 2,
+    text: "What are the main benefits of teamwork? (Choose two)",
+    options: [
+      "A. Deeper understanding of the topic",
+      "B. Everyone must work at the same pace",
+      "C. Opportunity to share experience",
+      "D. Responsibility decreases",
+    ],
+    correct: [0, 2],
+    maxScore: 20,
+    category: "Ethics",
+  },
+
+  // 23. FOMO examples
+  {
+    id: 23,
+    type: 2,
+    text: "Which situations are examples of FOMO (Fear Of Missing Out)? (Choose two)",
+    options: [
+      "A. Feeling bad when seeing friends having fun",
+      "B. Buying a new gaming console to keep up with others",
+      "C. Sending viruses",
+      "D. Hacking accounts",
+    ],
+    correct: [0, 1],
+    maxScore: 20,
+    category: "Ethics",
+  },
+
+  // 24. Opinion indicators
+  {
+    id: 24,
+    type: 2,
+    text: "Which signs indicate an article contains mostly opinions? (Choose two)",
+    options: [
+      "A. Statistical data is not provided",
+      "B. Author insults others' opinions",
+      "C. Sources are cited",
+      "D. Date is clearly given",
+    ],
+    correct: [0, 1],
+    maxScore: 20,
+    category: "Internet",
+  },
+
+  // 25. Video conference preparation
+  {
+    id: 25,
+    type: 2,
+    text: "Which two tasks should be done before a video conference? (Choose two)",
+    options: [
+      "A. Adjust camera to eye level",
+      "B. Place strong light behind you",
+      "C. Test technology beforehand",
+      "D. Download games",
+    ],
+    correct: [0, 2],
+    maxScore: 20,
+    category: "Ethics",
+  },
+
+  // 26. Constructive feedback
+  {
+    id: 26,
+    type: 2,
+    text: "Which are rules for giving constructive feedback? (Choose two)",
+    options: [
+      "A. Write respectfully",
+      "B. Provide clear evidence",
+      "C. Insult the person",
+      "D. Reject without reason",
+    ],
+    correct: [0, 1],
+    maxScore: 20,
+    category: "Ethics",
+  },
+
+  // 27. Collaboration essentials
+  {
+    id: 27,
+    type: 2,
+    text: "What is important for effective collaboration on shared documents? (Choose two)",
+    options: [
+      "A. Assign roles",
+      "B. Track versions",
+      "C. Only one person can open the document",
+      "D. Edit without comments",
+    ],
+    correct: [0, 1],
+    maxScore: 20,
+    category: "Software",
+  },
+
+  // 28. Article reliability
+  {
+    id: 28,
+    type: 2,
+    text: "What should you consider when evaluating online article reliability? (Choose two)",
+    options: [
+      "A. Author and sources",
+      "B. Publication date",
+      "C. Image quality",
+      "D. Number of ads",
+    ],
+    correct: [0, 1],
+    maxScore: 20,
+    category: "Internet",
+  },
+
+  // 29. Cyberbullying examples
+  {
+    id: 29,
+    type: 2,
+    text: "Which are examples of cyberbullying? (Choose two)",
+    options: [
+      "A. Sending repeated insulting messages",
+      "B. Mocking someone online",
+      "C. Buying a new device",
+      "D. Sharing study materials",
+    ],
+    correct: [0, 1],
+    maxScore: 20,
+    category: "Security",
+  },
+
+  // 30. Data security recommendations
+  {
+    id: 30,
+    type: 2,
+    text: "What is recommended to improve data security? (Choose two)",
+    options: [
+      "A. Two-factor authentication",
+      "B. Strong passwords",
+      "C. Tell passwords to everyone",
+      "D. Use the same password everywhere",
+    ],
+    correct: [0, 1],
+    maxScore: 20,
+    category: "Security",
+  },
+
+  // ==================== TYPE 2: THREE ANSWERS (30 points each) - 6 questions = 180 points ====================
+
+  // 31. Cloud storage benefits
+  {
+    id: 31,
+    type: 2,
+    text: "Which three are benefits of using cloud storage? (Choose three)",
+    options: [
+      "A. Access files from anywhere",
+      "B. Automatic backup",
+      "C. Easy file sharing",
+      "D. Files are always 100% secure",
+      "E. Requires no internet connection",
+    ],
+    correct: [0, 1, 2],
+    maxScore: 30,
+    category: "Internet",
+  },
+
+  // 32. Strong passwords
+  {
+    id: 32,
+    type: 2,
+    text: "Which three are examples of strong passwords? (Choose three)",
+    options: [
+      "A. P@ssw0rd2024!",
+      "B. 123456",
+      "C. M!necr@ft$Gamer",
+      "D. Qwerty123",
+      "E. password",
+      "F. Sun$hine2025",
+    ],
+    correct: [0, 2, 5],
+    maxScore: 30,
+    category: "Security",
+  },
+
+  // 33. Phishing email signs
+  {
+    id: 33,
+    type: 2,
+    text: "Which three are signs of a phishing email? (Choose three)",
+    options: [
+      "A. Urgent requests for personal information",
+      "B. Suspicious links",
+      "C. Poor grammar and spelling",
+      "D. Email from a known friend",
+      "E. Professional company logo",
+      "F. Generic greetings like 'Dear Customer'",
+    ],
+    correct: [0, 1, 5],
+    maxScore: 30,
+    category: "Security",
+  },
+
+  // 34. Input devices
+  {
+    id: 34,
+    type: 2,
+    text: "Which three are examples of input devices? (Choose three)",
+    options: [
+      "A. Keyboard",
+      "B. Monitor",
+      "C. Mouse",
+      "D. Printer",
+      "E. Microphone",
+      "F. Speaker",
+    ],
+    correct: [0, 2, 4],
+    maxScore: 30,
+    category: "Hardware",
+  },
+
+  // 35. Output devices
+  {
+    id: 35,
+    type: 2,
+    text: "Which three are examples of output devices? (Choose three)",
+    options: [
+      "A. Monitor",
+      "B. Keyboard",
+      "C. Speaker",
+      "D. Printer",
+      "E. Mouse",
+      "F. Scanner",
+    ],
+    correct: [0, 2, 3],
+    maxScore: 30,
+    category: "Hardware",
+  },
+
+  // 36. Web browsers
+  {
+    id: 36,
+    type: 2,
+    text: "Which three are common web browsers? (Choose three)",
+    options: [
+      "A. Google Chrome",
+      "B. Microsoft Word",
+      "C. Mozilla Firefox",
+      "D. Safari",
+      "E. Adobe Reader",
+      "F. Microsoft Edge",
+    ],
+    correct: [0, 2, 5],
+    maxScore: 30,
+    category: "Software",
+  },
+
+  // ==================== TYPE 3: TRUE/FALSE (10-40 points) - 14 questions = 380 points ====================
+
+  // 37. HDMI cable
+  {
+    id: 37,
+    type: 3,
+    text: "Select True or False: HDMI cable can connect a computer to a monitor.",
+    statements: ["HDMI cable can connect a computer to a monitor."],
+    correct: [1],
+    maxScore: 10,
+    category: "Hardware",
+  },
+
+  // 38. DVI cable
+  {
+    id: 38,
+    type: 3,
+    text: "Select True or False: DVI cable can transfer data between two computers over a network.",
+    statements: [
+      "DVI cable can transfer data between two computers over a network.",
+    ],
+    correct: [0],
+    maxScore: 10,
+    category: "Hardware",
+  },
+
+  // 39. 64-bit processors
+  {
+    id: 39,
+    type: 3,
+    text: "Select True or False: Most modern processors support 64-bit systems.",
+    statements: ["Most modern processors support 64-bit systems."],
+    correct: [1],
+    maxScore: 10,
+    category: "Hardware",
+  },
+
+  // 40. CPU cooling
+  {
+    id: 40,
+    type: 3,
+    text: "Select True or False: A CPU can function without a cooling system.",
+    statements: ["A CPU can function without a cooling system."],
+    correct: [0],
+    maxScore: 10,
+    category: "Hardware",
+  },
+
+  // 41. Cloud upload
+  {
+    id: 41,
+    type: 3,
+    text: "Select True or False: When you upload a file to cloud storage, it is automatically deleted from your computer.",
+    statements: [
+      "When you upload a file to cloud storage, it is automatically deleted from your computer.",
+    ],
+    correct: [0],
+    maxScore: 10,
+    category: "Internet",
+  },
+
+  // 42. FTP transfer
+  {
+    id: 42,
+    type: 3,
+    text: "Select True or False: Files can be sent to centralized storage via FTP.",
+    statements: ["Files can be sent to centralized storage via FTP."],
+    correct: [1],
+    maxScore: 10,
+    category: "Internet",
+  },
+
+  // 43. Cloud backups
+  {
+    id: 43,
+    type: 3,
+    text: "Select True or False: Cloud systems can support automatic backups.",
+    statements: ["Cloud systems can support automatic backups."],
+    correct: [1],
+    maxScore: 10,
+    category: "Internet",
+  },
+
+  // 44. RAM data retention
+  {
+    id: 44,
+    type: 3,
+    text: "Select True or False: Data in RAM is retained after power is turned off.",
+    statements: ["Data in RAM is retained after power is turned off."],
+    correct: [0],
+    maxScore: 10,
+    category: "Hardware",
+  },
+
+  // 45. Strong password
+  {
+    id: 45,
+    type: 3,
+    text: "Select True or False: A strong password should include letters, numbers, and symbols.",
+    statements: [
+      "A strong password should include letters, numbers, and symbols.",
+    ],
+    correct: [1],
+    maxScore: 10,
+    category: "Security",
+  },
+
+  // 46. Comments in documents
+  {
+    id: 46,
+    type: 3,
+    text: "Select True or False: Comment text changes the main content of a document.",
+    statements: ["Comment text changes the main content of a document."],
+    correct: [0],
+    maxScore: 10,
+    category: "Software",
+  },
+
+  // 47. Cloud internet requirement
+  {
+    id: 47,
+    type: 3,
+    text: "Select True or False: Cloud storage only works when you have internet connection.",
+    statements: ["Cloud storage only works when you have internet connection."],
+    correct: [1],
+    maxScore: 10,
+    category: "Internet",
+  },
+
+  // 48. Academic sources
+  {
+    id: 48,
+    type: 3,
+    text: "Select True or False: Every website is a valid academic source.",
+    statements: ["Every website is a valid academic source."],
+    correct: [0],
+    maxScore: 10,
+    category: "Internet",
+  },
+
+  // 49. Version history
+  {
+    id: 49,
+    type: 3,
+    text: "Select True or False: Version history is only for viewing, not restoring.",
+    statements: ["Version history is only for viewing, not restoring."],
+    correct: [0],
+    maxScore: 10,
+    category: "Software",
+  },
+
+  // 50. CPU function
+  {
+    id: 50,
+    type: 3,
+    text: "Select True or False: The CPU is the main processing center of a computer.",
+    statements: ["The CPU is the main processing center of a computer."],
+    correct: [1],
+    maxScore: 10,
+    category: "Hardware",
+  },
 ];
-
-
 
 // Take only first 50 questions for the exam
 // const level2QuestionsFinal = level2Questions.slice(0, 50);
@@ -1835,6 +1816,3 @@ window.selectAnswer = selectAnswer;
 window.toggleMulti = toggleMulti;
 window.setStatement = setStatement;
 window.goToQuestion = goToQuestion;
-
-
-
